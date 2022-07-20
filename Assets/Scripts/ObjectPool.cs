@@ -3,25 +3,32 @@ using System.Collections.Generic;
 
 public class ObjectPool : MonoBehaviour
 {
-    public static ObjectPool SharedInstance;
     [SerializeField] private List<PoolItem> poolItems;
     private Dictionary<ItemTypes, List<GameObject>> pools;
-
-    void Awake()
+    
+    public static ObjectPool Instance { get; private set; }
+    
+    private void Awake() 
     {
-        SharedInstance = this;
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        } 
     }
 
     void Start()
     {
         pools = new Dictionary<ItemTypes, List<GameObject>>();
-        for (int i = 0; i < poolItems.Count; i++)
+        for (var i = 0; i < poolItems.Count; i++)
         {
             List<GameObject> pooledObjects = new List<GameObject>();
-            GameObject tempItem;
             for (int j = 0; j < poolItems[i].Amount; j++)
             {
-                tempItem = Instantiate(poolItems[i].Prefab, transform, true);
+                var tempItem = Instantiate(poolItems[i].Prefab, transform, true);
                 tempItem.SetActive(false);
                 pooledObjects.Add(tempItem);
             }

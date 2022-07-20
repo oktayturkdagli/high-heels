@@ -1,13 +1,21 @@
 ﻿using System;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class EventManager : MonoBehaviour
 {
-    public static EventManager SharedInstance;
-
-    private void Awake()
+    public static EventManager Instance { get; private set; }
+    
+    private void Awake() 
     {
-        SharedInstance = this;
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        } 
     }
 
     //Events are created
@@ -15,7 +23,6 @@ public class EventManager : MonoBehaviour
     public event Action onFinishGame;
     public event Action onWinGame;
     public event Action onLoseGame;
-
 
     //Events cannot be triggered directly from another class so they are triggered via functions
     public void OnStartGame()

@@ -1,43 +1,43 @@
+using Unity.VisualScripting;
 using UnityEngine;
-using System.Collections.Generic;
 
+[ExecuteInEditMode]
 public class GameManager : MonoBehaviour
 {
-    public static GameManager SharedInstance;
-    [SerializeField] public SOLevelsData levelsData;
-    private SOLevel level;
-    private List<LevelItem> levelGrid;
+    public static GameManager Instance { get; private set; }
     
-    public List<LevelItem> LevelGrid { get => levelGrid; set => levelGrid = value; }
-    
-    private void Awake()
+    private void Awake() 
     {
-        SharedInstance = this;
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        } 
     }
-    
+
     private void OnEnable()
     {
-        EventManager.SharedInstance.onStartGame += OnStartGame;
-        EventManager.SharedInstance.onFinishGame += OnFinishGame;
+        EventManager.Instance.onStartGame += OnStartGame;
+        EventManager.Instance.onFinishGame += OnFinishGame;
     }
     
     private void OnDisable()
     {
-        EventManager.SharedInstance.onStartGame -= OnStartGame;
-        EventManager.SharedInstance.onFinishGame -= OnFinishGame;
+        EventManager.Instance.onStartGame -= OnStartGame;
+        EventManager.Instance.onFinishGame -= OnFinishGame;
     }
     
     private void Start()
     {
-        level = levelsData.GetLevel();
-        levelGrid = level.LevelGrid;
-        levelsData.DrawLevel();
-        EventManager.SharedInstance.OnStartGame();
+        EventManager.Instance.OnStartGame();
     }
     
     private void OnStartGame()
     {
-        
+        //Do Nothing
     }
     
     private void OnFinishGame()
@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
         //Do Nothing
     }
     
-
     public void OnDown()
     {
         
