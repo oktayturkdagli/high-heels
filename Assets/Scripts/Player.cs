@@ -4,7 +4,7 @@ namespace Game
 {
     public abstract class Player
     {
-        protected int multiplier;
+        private int multiplier;
 
         protected Player(int multiplier)
         {

@@ -74,7 +74,6 @@ namespace Game
 
         public void DrawLevel(int levelIndex)
         {
-            Debug.Log(levelIndex);
             Level level = new Level(levelDataContainer.levelDataList[levelIndex - 1]);
             level.Draw();
         }

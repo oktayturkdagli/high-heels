@@ -33,16 +33,15 @@ namespace Game
         private void LoadInitialValues()
         {
             LoadPlayerData();
-            if (playerDataContainer.playerDataList == null || playerDataContainer.playerDataList.Count < 1)
+            if (playerDataContainer == null || playerDataContainer.playerData == null)
             {
                 playerDataContainer = new PlayerDataContainer();
-                playerDataContainer.playerDataList = new List<PlayerData>();
                 PlayerData tempPlayerData = new PlayerData();
                 tempPlayerData.name = "Player1";
                 tempPlayerData.level = 1;
                 tempPlayerData.diamond = 0;
                 tempPlayerData.allItemsList = new AllItemsList();
-                playerDataContainer.playerDataList.Add(tempPlayerData);
+                playerDataContainer.playerData = tempPlayerData;
                 SavePlayerData();
             } 
         }

@@ -5,7 +5,7 @@ namespace Game
     [System.Serializable]
     public class PlayerDataContainer
     {
-        public List<PlayerData> playerDataList;
+        public PlayerData playerData;
     }
     
     [System.Serializable]
