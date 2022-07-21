@@ -6,8 +6,8 @@ namespace Game
     [ExecuteInEditMode]
     public class FileManager : MonoBehaviour
     {
-        [SerializeField] private TextAsset levelData;
-        [SerializeField] private TextAsset playerData;
+        [SerializeField] private TextAsset levelDataFile;
+        [SerializeField] private TextAsset playerDataFile;
 
         public static FileManager Instance { get; private set; }
 
@@ -23,19 +23,35 @@ namespace Game
             }
         }
 
-        public void ReadLevelData()
+        public void ReadLevelData(LevelManager levelManager)
         {
-            if (levelData != null)
+            if (levelDataFile != null)
             {
-                LevelManager.Instance.LevelDataContainer = ReadFile<LevelDataContainer>(levelData);
+                levelManager.LevelDataContainer = ReadFile<LevelDataContainer>(levelDataFile);
             }
         }
 
         public void WriteLevelData(LevelDataContainer objectType)
         {
-            if (levelData != null && objectType != null)
+            if (levelDataFile != null && objectType != null)
             {
-                WriteFile(objectType, levelData);
+                WriteFile(objectType, levelDataFile);
+            }
+        }
+        
+        public void ReadPlayerData(PlayerManager playerManager)
+        {
+            if (playerDataFile != null)
+            { 
+               playerManager.PlayerDataContainer = ReadFile<PlayerDataContainer>(playerDataFile);
+            }
+        }
+        
+        public void WritePlayerData(PlayerDataContainer objectType)
+        {
+            if (playerDataFile != null)
+            {
+                WriteFile(objectType, playerDataFile);
             }
         }
 

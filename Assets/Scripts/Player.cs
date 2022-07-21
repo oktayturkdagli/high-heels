@@ -4,11 +4,11 @@ namespace Game
 {
     public abstract class Player
     {
-        protected int _multiplier;
+        protected int multiplier;
 
         protected Player(int multiplier)
         {
-            this._multiplier = multiplier;
+            this.multiplier = multiplier;
         }
 
         protected void Walk()
@@ -41,7 +41,5 @@ namespace Game
             Debug.Log("Dance");
         }
 
-        public abstract void DoSpecialThing();
-        
     }
 }
