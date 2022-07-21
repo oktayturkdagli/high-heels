@@ -7,7 +7,9 @@ namespace Game
     public class Level
     {
         private LevelData levelData;
-
+        
+        public LevelData LevelData { get => levelData; set => levelData = value; }
+        
         public Level(LevelData levelData)
         {
             this.levelData = levelData;

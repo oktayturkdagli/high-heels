@@ -234,9 +234,12 @@ namespace Editor
         private void PullLevelData()
         {
             levelManager = target as LevelManager;
-            if (levelManager != null)
+            if (levelManager != null && levelManager.LevelDataContainer != null)
             {
-                currentLevelData = levelManager.BringLevelData(levelIndex);
+                if (levelIndex > levelManager.LevelDataContainer.levelDataList.Count || levelIndex == 0)
+                    levelIndex = levelManager.LevelDataContainer.levelDataList.Count;
+                
+                currentLevelData = levelManager.LevelDataContainer.levelDataList[levelIndex - 1];
             }
         }
     }

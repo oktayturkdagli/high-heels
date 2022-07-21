@@ -2,13 +2,25 @@ using UnityEngine;
 
 namespace Game
 {
-    public abstract class Player
+    public class Player : MonoBehaviour
     {
-        private int multiplier;
+        [SerializeField] private int multiplier;
+        
+        public int Multiplier { get => multiplier; set => multiplier = value; }
 
-        protected Player(int multiplier)
+        private void OnEnable()
         {
-            this.multiplier = multiplier;
+            EventManager.Instance.onStartLevel += OnStartLevel;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.Instance.onStartLevel -= OnStartLevel;
+        }
+        
+        private void OnStartLevel()
+        {
+            //Do Nothing
         }
 
         protected void Walk()

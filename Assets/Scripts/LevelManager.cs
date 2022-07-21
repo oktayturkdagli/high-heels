@@ -10,9 +10,8 @@ namespace Game
     public class LevelManager : MonoBehaviour
     {
         [SerializeField] private LevelDataContainer levelDataContainer;
-
+        
         public LevelDataContainer LevelDataContainer { get => levelDataContainer; set => levelDataContainer = value; }
-
         public static LevelManager Instance { get; private set; }
 
         private void Awake()
@@ -50,30 +49,12 @@ namespace Game
         {
             FileManager.Instance.WriteLevelData(levelDataContainer);
         }
-
-        public LevelData BringLevelData(int levelIndex)
-        {
-            if (levelDataContainer == null || levelDataContainer.levelDataList == null)
-                return null;
-
-            if (levelIndex > levelDataContainer.levelDataList.Count)
-            {
-                CreateLevelData(levelIndex - levelDataContainer.levelDataList.Count);
-            }
-
-            return levelDataContainer.levelDataList[levelIndex - 1];
-        }
-
-        private void CreateLevelData(int amount)
-        {
-            for (int i = 0; i < amount; i++)
-            {
-                levelDataContainer.levelDataList.Add(new LevelData());
-            }
-        }
-
+        
         public void DrawLevel(int levelIndex)
         {
+            if (levelIndex > levelDataContainer.levelDataList.Count)
+                levelIndex = 1;
+            
             Level level = new Level(levelDataContainer.levelDataList[levelIndex - 1]);
             level.Draw();
         }

@@ -14,22 +14,7 @@ namespace Game
         {
             LoadInitialValues();
         }
-        
-        private void OnEnable()
-        {
-            EventManager.Instance.onStartLevel += OnStartLevel;
-        }
 
-        private void OnDisable()
-        {
-            EventManager.Instance.onStartLevel -= OnStartLevel;
-        }
-        
-        private void OnStartLevel()
-        {
-            //Do Nothing
-        }
-        
         private void LoadInitialValues()
         {
             LoadPlayerData();
@@ -55,7 +40,6 @@ namespace Game
         {
             FileManager.Instance.WritePlayerData(playerDataContainer);
         }
-
         
     }
 }

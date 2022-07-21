@@ -4024,7 +4024,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDataContainer:
-    playerDataList: []
+    playerData:
+      name: 
+      level: 0
+      diamond: 0
+      allItemsList:
+        Characters: []
+        Hairs: []
+        Heads: []
+        Chests: []
+        Pants: []
+        Shoes: []
 --- !u!1001 &1336512233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4454,6 +4464,11 @@ MonoBehaviour:
         position: {x: 0, y: 0, z: 7}
       - type: 2
         position: {x: 2, y: 0, z: 9}
+      width: 5
+      height: 150
+    - levelGrid:
+      - type: 1
+        position: {x: 0, y: -1, z: 0}
       width: 5
       height: 150
 --- !u!1 &1497141180
