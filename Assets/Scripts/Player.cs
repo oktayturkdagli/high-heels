@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Game
 {
-    public abstract class Character
+    public abstract class Player
     {
         protected int _multiplier;
 
-        protected Character(int multiplier)
+        protected Player(int multiplier)
         {
             this._multiplier = multiplier;
         }

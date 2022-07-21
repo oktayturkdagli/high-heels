@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 
 namespace Game
 {
-    public class CharacterController : MonoBehaviour
+    public class PlayerManager : MonoBehaviour
     {
         private void OnEnable()
         {
