@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Game
 {
     [System.Serializable]
-    public struct AllItemsList
+    public class AllItemsList
     {
         public List<Character> Characters;
         public List<Item> Hairs;
@@ -14,7 +14,8 @@ namespace Game
         public List<Item> Shoes;
     }
     
-    public struct Item
+    [System.Serializable]
+    public class Item
     {
         public string name;
         public GameObject prefab;
@@ -22,23 +23,26 @@ namespace Game
         public ItemType ItemType;
     }
     
-    public struct Character
+    [System.Serializable]
+    public class Character
     {
         public string name;
         public GameObject prefab;
         public int price;
+        public float scaleMultiplier;
         public CharacterType characterType;
     }
     
+    [System.Serializable]
     public enum CharacterType
     {
         Giant,
         Dwarf
     }
     
+    [System.Serializable]
     public enum ItemType
     {
-        Character,
         Hair,
         Head,
         Chest,
