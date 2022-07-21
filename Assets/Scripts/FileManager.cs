@@ -26,7 +26,6 @@ public class FileManager : MonoBehaviour
         if (levelData != null)
         {
             LevelManager.Instance.LevelContainer = ReadFile<LevelContainer>(levelData);
-            Debug.Log("File read operation SUCCESSFUL!");
         }
     }
     
@@ -35,7 +34,6 @@ public class FileManager : MonoBehaviour
         if (levelData != null && objectType != null)
         {
             WriteFile(objectType, levelData);
-            Debug.Log("File write operation SUCCESSFUL!");
         }
     }
 
@@ -47,7 +45,7 @@ public class FileManager : MonoBehaviour
     private void WriteFile(object dataType, TextAsset file)
     {
         string data = JsonUtility.ToJson(dataType);
-        File.WriteAllText(Application.dataPath + "/Resources/Jsons/LevelData.json", data); //TODO: Convert to Text Assets
+        File.WriteAllText(Application.dataPath + "/Resources/Jsons/" + file.name + ".json", data);
     }
 
 }

@@ -1,10 +1,9 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public int level = 1;
     
     private void Awake() 
     {
@@ -33,6 +32,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         EventManager.Instance.OnStartGame();
+        LevelManager.Instance.DrawLevel(level);
     }
     
     private void OnStartGame()

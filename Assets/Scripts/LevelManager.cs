@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,10 +22,7 @@ public class LevelManager : MonoBehaviour
         { 
             Instance = this; 
         } 
-    }
-    
-    private void OnEnable()
-    {
+        
         Load();
         if (levelContainer == null || levelContainer.levels == null || levelContainer.levels.Count < 1)
         {
@@ -34,7 +32,7 @@ public class LevelManager : MonoBehaviour
             Save();
         }
     }
-    
+
     private void Load()
     {
         FileManager.Instance.ReadLevelData();
@@ -66,7 +64,7 @@ public class LevelManager : MonoBehaviour
         }
     }
     
-    private void DrawLevel(int levelIndex)
+    public void DrawLevel(int levelIndex)
     {
         if (levelIndex - 1 > levelContainer.levels.Count - 1)
             levelIndex = Random.Range(1, levelContainer.levels.Count - 1);

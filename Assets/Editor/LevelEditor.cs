@@ -21,7 +21,6 @@ namespace Editor
 
         private void OnEnable()
         {
-            levelManager = target as LevelManager;
             ShowItemsInTabMenu();
             SceneView.duringSceneGui += OnScene;
         }
@@ -33,11 +32,7 @@ namespace Editor
 
         private void OnScene(SceneView sceneView)
         {
-            levelManager = target as LevelManager;
-            if (levelManager != null)
-            {
-                currentLevel = levelManager.BringLevel(levelIndex);
-            }
+            PullLevelData();
             
             if (levelManager == null || currentLevel == null)
                 return;
@@ -117,7 +112,7 @@ namespace Editor
                     case ItemTypes.Null:
                         break;
                     case ItemTypes.Road:
-                        Handles.color = Color.white; //TODO: width and height should take from level
+                        Handles.color = Color.white;
                         Handles.DrawWireCube(new Vector3(currentLevel.levelGrid[i].position.x, currentLevel.levelGrid[i].position.y, 
                             currentLevel.levelGrid[i].position.z + currentLevel.height/2), new Vector3(currentLevel.width,0f,currentLevel.height));
                         break;
@@ -234,7 +229,15 @@ namespace Editor
                 itemTypesText[i] = ((ItemTypes)i).ToString();
             }
         }
-        
+
+        private void PullLevelData()
+        {
+            levelManager = target as LevelManager;
+            if (levelManager != null)
+            {
+                currentLevel = levelManager.BringLevel(levelIndex);
+            }
+        }
     }
 }
 #endif

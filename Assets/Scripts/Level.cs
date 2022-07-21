@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-//TODO: Make Encapsulation
 [System.Serializable]
 public class Level
 {
