@@ -1,49 +1,59 @@
 ﻿using System;
 using UnityEngine;
 
-[ExecuteInEditMode]
-public class EventManager : MonoBehaviour
+namespace Game
 {
-    public static EventManager Instance { get; private set; }
-    
-    private void Awake() 
+    [ExecuteInEditMode]
+    public class EventManager : MonoBehaviour
     {
-        if (Instance != null && Instance != this) 
-        { 
-            Destroy(this); 
-        } 
-        else 
-        { 
-            Instance = this; 
-        } 
-    }
+        public static EventManager Instance { get; private set; }
 
-    //Events are created
-    public event Action onStartGame;
-    public event Action onFinishGame;
-    public event Action onWinGame;
-    public event Action onLoseGame;
-
-    //Events cannot be triggered directly from another class so they are triggered via functions
-    public void OnStartGame()
-    {
-        onStartGame?.Invoke();
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
+            }
+        }
+        
+        //Events are created
+        public event Action onLoadScene;
+        public event Action onStartLevel;
+        public event Action onFinishLevel;
+        public event Action onWinLevel;
+        public event Action onLoseLevel;
+        
+        
+        //Events cannot be triggered directly from another class so they are triggered via functions
+        public void OnLoadScene()
+        {
+            onLoadScene?.Invoke();
+        }
+        
+        public void OnStartLevel()
+        {
+            onStartLevel?.Invoke();
+        }
+        
+        public void OnFinishLevel()
+        {
+            onFinishLevel?.Invoke();
+        }
+        
+        public void OnWinLevel()
+        {
+            onWinLevel?.Invoke();
+        }
+        
+        public void OnLoseLevel()
+        {
+            onLoseLevel?.Invoke();
+        }
+        
     }
-
-    public void OnFinishGame()
-    {
-        onFinishGame?.Invoke();
-    }
-    
-    public void OnWinGame()
-    {
-        onWinGame?.Invoke();
-    }
-    
-    public void OnLoseGame()
-    {
-        onLoseGame?.Invoke();
-    }
-    
 }
 
