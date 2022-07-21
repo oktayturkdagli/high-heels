@@ -35,12 +35,11 @@ namespace Game
         private void Start()
         {
             EventManager.Instance.OnLoadScene();
-            LevelManager.Instance.DrawLevel(level);
         }
 
         private void OnLoadScene()
         {
-            //Do Nothing
+            LevelManager.Instance.DrawLevel(level);
         }
 
         private void OnStartLevel()

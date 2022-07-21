@@ -10,7 +10,7 @@ namespace Editor
     public class LevelEditor : UnityEditor.Editor
     {
         private LevelManager levelManager;
-        private Level currentLevel ;
+        private LevelData currentLevelData ;
         private Vector3 mousePosition;
         private int levelIndex = 1;
         private bool onMouseDown = false;
@@ -35,7 +35,7 @@ namespace Editor
         {
             PullLevelData();
             
-            if (levelManager == null || currentLevel == null)
+            if (levelManager == null || currentLevelData == null)
                 return;
             
             CheckInput();
@@ -45,7 +45,7 @@ namespace Editor
         
         public override void OnInspectorGUI()
         {
-            if (currentLevel == null)
+            if (currentLevelData == null)
                 return;
             
             DrawMyInspector();
@@ -61,11 +61,11 @@ namespace Editor
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
             GUILayout.Label("width", EditorStyles.boldLabel);
-            currentLevel.width = EditorGUILayout.IntField(currentLevel.width);
+            currentLevelData.width = EditorGUILayout.IntField(currentLevelData.width);
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
             GUILayout.Label("height", EditorStyles.boldLabel);
-            currentLevel.height = EditorGUILayout.IntField(currentLevel.height);
+            currentLevelData.height = EditorGUILayout.IntField(currentLevelData.height);
             GUILayout.EndHorizontal();
 
             DrawMyButtons();
@@ -73,7 +73,7 @@ namespace Editor
             EditorGUILayout.Space(20);
             GUILayout.Label("Levels", EditorStyles.boldLabel);
             serializedObject.Update();
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("levelContainer"), true);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("levelDataContainer"), true);
             serializedObject.ApplyModifiedProperties();
             EditorGUILayout.Space(20);
             EditorGUILayout.HelpBox(HelpBoxText, MessageType.None);
@@ -93,45 +93,45 @@ namespace Editor
             if (GUILayout.Button("Clear All Of Selected"))
                 Clear();
             if (GUILayout.Button("Save"))
-                levelManager.Save();
+                levelManager.SaveLevelData();
         }
     
         private void Draw3DObjectOnScene()
         {
-            if (currentLevel == null)
+            if (currentLevelData == null)
                 return;
 
             Handles.color = Color.magenta;
             Handles.DrawWireDisc(Vector3.zero, Vector3.up, 0.5f);
-            if (currentLevel.levelGrid.Count < 1)
+            if (currentLevelData.levelGrid.Count < 1)
                 return;
 
-            for (var i = 0; i < currentLevel.levelGrid.Count; i++)
+            for (var i = 0; i < currentLevelData.levelGrid.Count; i++)
             {
-                switch (currentLevel.levelGrid[i].type)
+                switch (currentLevelData.levelGrid[i].type)
                 {
-                    case ItemTypes.Null:
+                    case EnvironmentalItemTypes.Null:
                         break;
-                    case ItemTypes.Road:
+                    case EnvironmentalItemTypes.Road:
                         Handles.color = Color.white;
-                        Handles.DrawWireCube(new Vector3(currentLevel.levelGrid[i].position.x, currentLevel.levelGrid[i].position.y, 
-                            currentLevel.levelGrid[i].position.z + currentLevel.height/2), new Vector3(currentLevel.width,0f,currentLevel.height));
+                        Handles.DrawWireCube(new Vector3(currentLevelData.levelGrid[i].position.x, currentLevelData.levelGrid[i].position.y, 
+                            currentLevelData.levelGrid[i].position.z + currentLevelData.height/2), new Vector3(currentLevelData.width,0f,currentLevelData.height));
                         break;
-                    case ItemTypes.Cube:
+                    case EnvironmentalItemTypes.Cube:
                         Handles.color = Color.red;
-                        Handles.DrawWireCube(currentLevel.levelGrid[i].position, Vector3.one);
+                        Handles.DrawWireCube(currentLevelData.levelGrid[i].position, Vector3.one);
                         break;
-                    case ItemTypes.Shoe:
+                    case EnvironmentalItemTypes.Shoe:
                         Handles.color = Color.magenta;
-                        Handles.DrawWireCube(currentLevel.levelGrid[i].position, Vector3.one);
+                        Handles.DrawWireCube(currentLevelData.levelGrid[i].position, Vector3.one);
                         break;
-                    case ItemTypes.Diamond:
+                    case EnvironmentalItemTypes.Diamond:
                         Handles.color = Color.cyan;
-                        Handles.DrawWireCube(currentLevel.levelGrid[i].position, Vector3.one);
+                        Handles.DrawWireCube(currentLevelData.levelGrid[i].position, Vector3.one);
                         break;
-                    case ItemTypes.Finish:
+                    case EnvironmentalItemTypes.Finish:
                         Handles.color = Color.green;
-                        Handles.DrawWireDisc(currentLevel.levelGrid[i].position, Vector3.up, currentLevel.width);
+                        Handles.DrawWireDisc(currentLevelData.levelGrid[i].position, Vector3.up, currentLevelData.width);
                         break;
                 }
             }
@@ -170,16 +170,16 @@ namespace Editor
     
         private void CreateObject(Vector3 position)
         {
-            ItemTypes tempItemType = (ItemTypes)selectedItem;
-            if (tempItemType == ItemTypes.Null)
+            EnvironmentalItemTypes tempEnvironmentalItemType = (EnvironmentalItemTypes)selectedItem;
+            if (tempEnvironmentalItemType == EnvironmentalItemTypes.Null)
                 return;
         
             var levelItem = new LevelItem
             {
-                type = tempItemType,
+                type = tempEnvironmentalItemType,
                 position = position
             };
-            currentLevel.levelGrid.Add(levelItem);
+            currentLevelData.levelGrid.Add(levelItem);
         }
     
         private void CreateRoad()
@@ -193,11 +193,11 @@ namespace Editor
     
         private void RemoveAt(Vector3 position)
         {
-            for (int i = 0; i < currentLevel.levelGrid.Count; i++)
+            for (int i = 0; i < currentLevelData.levelGrid.Count; i++)
             {
-                if (currentLevel.levelGrid[i].position == position)
+                if (currentLevelData.levelGrid[i].position == position)
                 {
-                    currentLevel.levelGrid.RemoveAt(i);
+                    currentLevelData.levelGrid.RemoveAt(i);
                     break;
                 }
             }
@@ -205,17 +205,17 @@ namespace Editor
 
         private void Clear()
         {
-            ItemTypes tempItemType = (ItemTypes)selectedItem;
+            EnvironmentalItemTypes tempEnvironmentalItemType = (EnvironmentalItemTypes)selectedItem;
         
-            if (tempItemType == ItemTypes.Null)
+            if (tempEnvironmentalItemType == EnvironmentalItemTypes.Null)
                 return;
         
             mousePosition = Vector3.zero;
-            for (int i = 0; i < currentLevel.levelGrid.Count; i++)
+            for (int i = 0; i < currentLevelData.levelGrid.Count; i++)
             {
-                if (currentLevel.levelGrid[i].type == tempItemType)
+                if (currentLevelData.levelGrid[i].type == tempEnvironmentalItemType)
                 {
-                    currentLevel.levelGrid.RemoveAt(i);
+                    currentLevelData.levelGrid.RemoveAt(i);
                     i--;
                 }
             }
@@ -223,11 +223,11 @@ namespace Editor
     
         private void ShowItemsInTabMenu()
         {
-            int itemTypesLength = Enum.GetValues(typeof(ItemTypes)).Length;
+            int itemTypesLength = Enum.GetValues(typeof(EnvironmentalItemTypes)).Length;
             itemTypesText = new string[itemTypesLength];
             for (int i = 0; i < itemTypesLength; i++)
             {
-                itemTypesText[i] = ((ItemTypes)i).ToString();
+                itemTypesText[i] = ((EnvironmentalItemTypes)i).ToString();
             }
         }
 
@@ -236,7 +236,7 @@ namespace Editor
             levelManager = target as LevelManager;
             if (levelManager != null)
             {
-                currentLevel = levelManager.BringLevel(levelIndex);
+                currentLevelData = levelManager.BringLevelData(levelIndex);
             }
         }
     }

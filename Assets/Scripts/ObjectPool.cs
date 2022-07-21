@@ -6,7 +6,7 @@ namespace Game
     public class ObjectPool : MonoBehaviour
     {
         [SerializeField] private List<PoolItem> poolItems;
-        private Dictionary<ItemTypes, List<GameObject>> pools;
+        private Dictionary<EnvironmentalItemTypes, List<GameObject>> pools;
 
         public static ObjectPool Instance { get; private set; }
 
@@ -24,7 +24,7 @@ namespace Game
 
         void Start()
         {
-            pools = new Dictionary<ItemTypes, List<GameObject>>();
+            pools = new Dictionary<EnvironmentalItemTypes, List<GameObject>>();
             for (var i = 0; i < poolItems.Count; i++)
             {
                 List<GameObject> pooledObjects = new List<GameObject>();
@@ -39,7 +39,7 @@ namespace Game
             }
         }
 
-        public GameObject GetPooledObject(ItemTypes type, Vector3 position, Vector3 rotation)
+        public GameObject GetPooledObject(EnvironmentalItemTypes type, Vector3 position, Vector3 rotation)
         {
             for (int i = 0; i < pools[type].Count; i++)
             {
@@ -66,11 +66,11 @@ namespace Game
     [System.Serializable]
     public struct PoolItem
     {
-        [SerializeField] ItemTypes type;
+        [SerializeField] EnvironmentalItemTypes type;
         [SerializeField] GameObject prefab;
         [SerializeField] int amount;
 
-        public ItemTypes Type
+        public EnvironmentalItemTypes Type
         {
             get => type;
             set => type = value;
@@ -90,7 +90,7 @@ namespace Game
     }
 
     [System.Serializable]
-    public enum ItemTypes
+    public enum EnvironmentalItemTypes
     {
         Null,
         Road,

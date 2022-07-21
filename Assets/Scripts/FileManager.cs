@@ -27,11 +27,11 @@ namespace Game
         {
             if (levelData != null)
             {
-                LevelManager.Instance.LevelContainer = ReadFile<LevelContainer>(levelData);
+                LevelManager.Instance.LevelDataContainer = ReadFile<LevelDataContainer>(levelData);
             }
         }
 
-        public void WriteLevelData(LevelContainer objectType)
+        public void WriteLevelData(LevelDataContainer objectType)
         {
             if (levelData != null && objectType != null)
             {

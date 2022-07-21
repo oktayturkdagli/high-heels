@@ -1,26 +1,42 @@
-using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace Game
 {
-    [System.Serializable]
     public class Level
     {
-        public List<LevelItem> levelGrid = new List<LevelItem>();
-        public int width = 5;
-        public int height = 150;
-    }
+        private LevelData levelData;
 
-    [System.Serializable]
-    public class LevelContainer
-    {
-        public List<Level> levels;
-    }
+        public Level(LevelData levelData)
+        {
+            this.levelData = levelData;
+        }
 
-    [System.Serializable]
-    public class LevelItem
-    {
-        public ItemTypes type;
-        public Vector3 position;
+        public void Draw()
+        {
+            List<LevelItem> levelGrid = levelData.levelGrid;
+            levelGrid = levelGrid.OrderBy(x => x.position.x).ThenBy(x => x.position.z).ToList();
+            for (var i = 0; i < levelGrid.Count; i++)
+            {
+                GameObject item =
+                    ObjectPool.Instance.GetPooledObject(levelGrid[i].type, levelGrid[i].position, Vector3.zero);
+                if (levelGrid[i].type == EnvironmentalItemTypes.Road)
+                {
+                    item.transform.localScale = new Vector3(levelData.width, 1, levelData.height);
+                    var position = item.transform.position;
+                    position = new Vector3(position.x, -1, position.z);
+                    item.transform.position = position;
+                }
+                else if (levelGrid[i].type == EnvironmentalItemTypes.Finish)
+                {
+                    item.transform.localScale = new Vector3(levelData.width * 2, 1, levelData.height * 2);
+                    var position = item.transform.position;
+                    position = new Vector3(position.x, -1, position.z);
+                    item.transform.position = position;
+                }
+            }
+        }
+        
     }
 }
