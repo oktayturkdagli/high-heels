@@ -11,11 +11,7 @@ namespace Game
     {
         [SerializeField] private LevelDataContainer levelDataContainer;
 
-        public LevelDataContainer LevelDataContainer
-        {
-            get => levelDataContainer;
-            set => levelDataContainer = value;
-        }
+        public LevelDataContainer LevelDataContainer { get => levelDataContainer; set => levelDataContainer = value; }
 
         public static LevelManager Instance { get; private set; }
 
@@ -47,7 +43,7 @@ namespace Game
 
         private void LoadLevelData()
         {
-            FileManager.Instance.ReadLevelData();
+            FileManager.Instance.ReadLevelData(this);
         }
 
         public void SaveLevelData()

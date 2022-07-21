@@ -1868,8 +1868,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05c56cd4f054d06a0b0ef08dc81a4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelData: {fileID: 4900000, guid: 551bd8662e2d94e47bb51ad0a23e0567, type: 3}
-  playerData: {fileID: 4900000, guid: 3b58748de46584ee0a56901bd6d8de12, type: 3}
+  levelDataFile: {fileID: 4900000, guid: 551bd8662e2d94e47bb51ad0a23e0567, type: 3}
+  playerDataFile: {fileID: 4900000, guid: 3b58748de46584ee0a56901bd6d8de12, type: 3}
 --- !u!1001 &617906206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4399,7 +4399,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelDataContainer:
     levelDataList:
-    - levelGrid: []
+    - levelGrid:
+      - type: 1
+        position: {x: 0, y: -1, z: 0}
+      - type: 2
+        position: {x: 2, y: 0, z: 8}
+      - type: 2
+        position: {x: 0, y: 0, z: 7}
+      - type: 2
+        position: {x: 2, y: 0, z: 9}
       width: 5
       height: 150
 --- !u!1 &1497141180
