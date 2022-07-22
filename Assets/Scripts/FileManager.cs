@@ -8,8 +8,15 @@ namespace Game
     {
         [SerializeField] private TextAsset levelDataFile;
         [SerializeField] private TextAsset playerDataFile;
+        private bool isLevelDataFileNull, isPlayerDataFileNull;
 
         public static FileManager Instance { get; set; }
+
+        private void Start()
+        {
+            isLevelDataFileNull = levelDataFile == null;
+            isPlayerDataFileNull = playerDataFile == null;
+        }
 
         private void Awake()
         {
@@ -25,34 +32,33 @@ namespace Game
 
         public void ReadLevelData(LevelManager levelManager)
         {
-            if (levelDataFile != null)
-            {
-                levelManager.LevelDataContainer = ReadFile<LevelDataContainer>(levelDataFile);
-            }
+            if (isLevelDataFileNull) return;
+            string data = File.ReadAllText(Application.dataPath + "/Resources/Jsons/" + levelDataFile.name + ".json");
+            levelManager.LevelDataContainer = JsonUtility.FromJson<LevelDataContainer>(data);
         }
 
         public void WriteLevelData(LevelDataContainer objectType)
         {
-            if (levelDataFile != null && objectType != null)
-            {
-                WriteFile(objectType, levelDataFile);
-            }
+            if (isLevelDataFileNull || objectType == null)
+                return; 
+            
+            WriteFile(objectType, levelDataFile);
+            
         }
         
         public void ReadPlayerData(PlayerManager playerManager)
         {
-            if (playerDataFile != null)
-            { 
-               playerManager.PlayerDataContainer = ReadFile<PlayerDataContainer>(playerDataFile);
-            }
+            if (isPlayerDataFileNull) return;
+            string data = File.ReadAllText(Application.dataPath + "/Resources/Jsons/" + playerDataFile.name + ".json");
+            playerManager.PlayerDataContainer = JsonUtility.FromJson<PlayerDataContainer>(data);
         }
         
         public void WritePlayerData(PlayerDataContainer objectType)
         {
-            if (playerDataFile != null)
-            {
-                WriteFile(objectType, playerDataFile);
-            }
+            if (isPlayerDataFileNull || objectType == null)
+                return; 
+            
+            WriteFile(objectType, playerDataFile);
         }
 
         private T ReadFile<T>(TextAsset fileToRead)

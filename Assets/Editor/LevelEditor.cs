@@ -22,6 +22,7 @@ namespace Editor
 
         private void OnEnable()
         {
+            levelManager = target as LevelManager;
             ShowItemsInTabMenu();
             SceneView.duringSceneGui += OnScene;
         }
@@ -180,6 +181,7 @@ namespace Editor
                 position = position
             };
             currentLevelData.levelGrid.Add(levelItem);
+            levelManager.SaveLevelData();
         }
     
         private void CreateRoad()
@@ -219,6 +221,7 @@ namespace Editor
                     i--;
                 }
             }
+            levelManager.SaveLevelData();
         }
     
         private void ShowItemsInTabMenu()
@@ -233,7 +236,6 @@ namespace Editor
 
         private void PullLevelData()
         {
-            levelManager = target as LevelManager;
             if (levelManager != null && levelManager.LevelDataContainer != null)
             {
                 if (levelIndex > levelManager.LevelDataContainer.levelDataList.Count || levelIndex == 0)

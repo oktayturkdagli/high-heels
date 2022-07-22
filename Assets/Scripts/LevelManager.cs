@@ -48,10 +48,13 @@ namespace Game
         public void SaveLevelData()
         {
             FileManager.Instance.WriteLevelData(levelDataContainer);
+            LoadLevelData();
         }
         
         public void DrawLevel(int levelIndex)
         {
+            LoadLevelData();
+            
             if (levelIndex > levelDataContainer.levelDataList.Count)
                 levelIndex = 1;
             
