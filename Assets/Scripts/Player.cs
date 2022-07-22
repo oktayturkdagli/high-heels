@@ -21,12 +21,19 @@ namespace Game
 
         private void OnEnable()
         {
+            InputManager.Instance.onSwipe += OnSwipe;
             EventManager.Instance.onStartLevel += OnStartLevel;
         }
 
         private void OnDisable()
         {
+            InputManager.Instance.onSwipe -= OnSwipe;
             EventManager.Instance.onStartLevel -= OnStartLevel;
+        }
+        
+        private void OnSwipe(SwipeType swipeType)
+        {
+            Debug.Log(swipeType.ToString());
         }
         
         private void OnStartLevel()
