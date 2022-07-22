@@ -5,9 +5,9 @@ namespace Game
 {
     public class InputManager : MonoBehaviour
     {
-        [SerializeField] private bool isUp, isDown, isSwipe;
+        [SerializeField] private bool isUp, isDown, isMove, isStationary, isSwipe;
         [SerializeField] private SwipeType swipeType;
-        [SerializeField] private Vector2 swipeDelta, startTouch;
+        [SerializeField] private Vector2 swipeDelta, moveDelta, startTouch, lastTouch;
         private const float SwipeThreshold = 100f;
 
         public bool IsUp
@@ -35,11 +35,21 @@ namespace Game
 
         public event Action onUp;
         public event Action onDown;
+        public event Action<Vector2> onMove;
+        public event Action onStationary;
         public event Action<SwipeType> onSwipe;
 
         public void OnUp()
         {
             onUp?.Invoke();
+        }
+        public void OnMove(Vector2 delta)
+        {
+            onMove?.Invoke(delta);
+        }
+        public void OnStationary()
+        {
+            onStationary?.Invoke();
         }
         public void OnDown()
         {
@@ -73,7 +83,7 @@ namespace Game
 
         private void ResetVariables()
         {
-            isUp = isDown = isSwipe = false;
+            isUp = isDown = isMove = isStationary = isSwipe = false;
             swipeType = SwipeType.Null;
             swipeDelta = Vector2.zero;
         }
@@ -101,15 +111,22 @@ namespace Game
                 case TouchPhase.Began:
                     isDown = true;
                     startTouch = Input.mousePosition;
+                    lastTouch = Input.touches[0].position;
                     break;
                 case TouchPhase.Ended:
                 case TouchPhase.Canceled:
                     isUp = true;
                     startTouch = swipeDelta = Vector2.zero;
+                    lastTouch = Vector2.zero;
                     break;
                 case TouchPhase.Moved:
+                    moveDelta = Input.touches[0].position - lastTouch;
+                    if (moveDelta.magnitude > 0.01f)
+                        isMove = true;
                     break;
                 case TouchPhase.Stationary:
+                    isStationary = true;
+                    lastTouch = Input.touches[0].position;
                     break;
                 default:
                     break;
@@ -169,6 +186,16 @@ namespace Game
             if (isDown)
             {
                 OnDown();
+            }
+            
+            if (isMove)
+            {
+                OnMove(moveDelta);
+            }
+            
+            if (isStationary)
+            {
+                OnStationary();
             }
 
             if (isSwipe && swipeType != SwipeType.Null)

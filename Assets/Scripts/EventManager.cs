@@ -26,6 +26,7 @@ namespace Game
         public event Action onFinishLevel;
         public event Action onWinLevel;
         public event Action onLoseLevel;
+        public event Action onAllowPlayerMovement;
         
         
         //Events cannot be triggered directly from another class so they are triggered via functions
@@ -52,6 +53,11 @@ namespace Game
         public void OnLoseLevel()
         {
             onLoseLevel?.Invoke();
+        }
+        
+        public void OnAllowPlayerMovement()
+        {
+            onAllowPlayerMovement?.Invoke();
         }
         
     }
