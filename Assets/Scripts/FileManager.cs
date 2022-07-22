@@ -46,11 +46,11 @@ namespace Game
             
         }
         
-        public void ReadPlayerData(PlayerManager playerManager)
+        public void ReadPlayerData(PlayerDataManager playerDataManager)
         {
             if (isPlayerDataFileNull) return;
             string data = File.ReadAllText(Application.dataPath + "/Resources/Jsons/" + playerDataFile.name + ".json");
-            playerManager.PlayerDataContainer = JsonUtility.FromJson<PlayerDataContainer>(data);
+            playerDataManager.PlayerDataContainer = JsonUtility.FromJson<PlayerDataContainer>(data);
         }
         
         public void WritePlayerData(PlayerDataContainer objectType)

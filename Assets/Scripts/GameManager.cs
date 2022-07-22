@@ -39,6 +39,7 @@ namespace Game
 
         private void OnLoadScene()
         {
+            level = PlayerDataManager.Instance.PlayerDataContainer.playerData.level;
             LevelManager.Instance.DrawLevel(level);
             EventManager.Instance.OnStartLevel();
         }

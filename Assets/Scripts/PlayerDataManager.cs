@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace Game
 {
-    public class PlayerManager : MonoBehaviour
+    public class PlayerDataManager : MonoBehaviour
     {
         [SerializeField] private PlayerDataContainer playerDataContainer;
         
         public PlayerDataContainer PlayerDataContainer { get => playerDataContainer; set => playerDataContainer = value; }
-        public static PlayerManager Instance { get; set; }
+        public static PlayerDataManager Instance { get; set; }
         
         private void Awake()
         {
@@ -23,6 +23,16 @@ namespace Game
             }
             
             LoadInitialValues();
+        }
+        
+        private void OnEnable()
+        {
+            EventManager.Instance.onCollectAnItem += OnCollectAnItem;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.Instance.onCollectAnItem -= OnCollectAnItem;
         }
 
         private void LoadInitialValues()
@@ -49,6 +59,20 @@ namespace Game
         private void SavePlayerData()
         {
             FileManager.Instance.WritePlayerData(playerDataContainer);
+        }
+        
+        private void OnCollectAnItem(CollectableItemType collectableItemType)
+        {
+            if (collectableItemType == CollectableItemType.Diamond)
+            {
+                IncreaseDiamondCount();
+            }
+        }
+        
+        private void IncreaseDiamondCount()
+        {
+            playerDataContainer.playerData.diamond += 1;
+            SavePlayerData();
         }
         
     }
