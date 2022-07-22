@@ -27,6 +27,7 @@ namespace Game
         public event Action onWinLevel;
         public event Action onLoseLevel;
         public event Action onAllowPlayerMovement;
+        public event Action<CollectableItemType> onCollectAnItem;
         
         
         //Events cannot be triggered directly from another class so they are triggered via functions
@@ -58,6 +59,11 @@ namespace Game
         public void OnAllowPlayerMovement()
         {
             onAllowPlayerMovement?.Invoke();
+        }
+        
+        public void OnCollectAnItem(CollectableItemType collectableItemType)
+        {
+            onCollectAnItem?.Invoke(collectableItemType);
         }
         
     }
