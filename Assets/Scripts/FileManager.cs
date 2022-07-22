@@ -9,7 +9,7 @@ namespace Game
         [SerializeField] private TextAsset levelDataFile;
         [SerializeField] private TextAsset playerDataFile;
 
-        public static FileManager Instance { get; private set; }
+        public static FileManager Instance { get; set; }
 
         private void Awake()
         {

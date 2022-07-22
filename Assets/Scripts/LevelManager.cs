@@ -12,7 +12,7 @@ namespace Game
         [SerializeField] private LevelDataContainer levelDataContainer;
         
         public LevelDataContainer LevelDataContainer { get => levelDataContainer; set => levelDataContainer = value; }
-        public static LevelManager Instance { get; private set; }
+        public static LevelManager Instance { get; set; }
 
         private void Awake()
         {

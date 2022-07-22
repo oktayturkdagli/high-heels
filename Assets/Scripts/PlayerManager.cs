@@ -9,9 +9,19 @@ namespace Game
         [SerializeField] private PlayerDataContainer playerDataContainer;
         
         public PlayerDataContainer PlayerDataContainer { get => playerDataContainer; set => playerDataContainer = value; }
-
+        public static PlayerManager Instance { get; set; }
+        
         private void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
+            }
+            
             LoadInitialValues();
         }
 

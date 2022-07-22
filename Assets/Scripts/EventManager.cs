@@ -6,7 +6,7 @@ namespace Game
     [ExecuteInEditMode]
     public class EventManager : MonoBehaviour
     {
-        public static EventManager Instance { get; private set; }
+        public static EventManager Instance { get; set; }
 
         private void Awake()
         {

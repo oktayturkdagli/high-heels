@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game
@@ -5,8 +6,18 @@ namespace Game
     public class Player : MonoBehaviour
     {
         [SerializeField] private int multiplier;
-        
+        [SerializeField] private int speed;
+        [SerializeField] private bool canMove = true;
+        private Animator playerAnimator;
+        private static readonly int AnimatorParameterWalk = Animator.StringToHash("Walk");
+        private static readonly int AnimatorParameterDance = Animator.StringToHash("Dance");
+
         public int Multiplier { get => multiplier; set => multiplier = value; }
+
+        private void Start()
+        {
+            playerAnimator = GetComponent<Animator>();
+        }
 
         private void OnEnable()
         {
@@ -23,9 +34,20 @@ namespace Game
             //Do Nothing
         }
 
-        protected void Walk()
+        protected void Walk(Vector3 movementVector)
         {
-            Debug.Log("Walk");
+            if (canMove)
+            {
+                playerAnimator.SetBool(AnimatorParameterWalk, true);
+                transform.Translate(movementVector.normalized * speed * Time.deltaTime, Space.World);
+                Debug.Log("Walk" + movementVector.normalized);
+            }
+        }
+        
+        protected void Stop()
+        {
+            playerAnimator.SetBool(AnimatorParameterWalk, false);
+            Debug.Log("Stop");
         }
 
         protected void Rise()
@@ -50,6 +72,7 @@ namespace Game
 
         protected void Dance()
         {
+            playerAnimator.SetTrigger(AnimatorParameterDance);
             Debug.Log("Dance");
         }
 

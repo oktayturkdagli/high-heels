@@ -4,7 +4,7 @@ namespace Game
 {
     public class GameManager : MonoBehaviour
     {
-        public static GameManager Instance { get; private set; }
+        public static GameManager Instance { get; set; }
         public int level = 1;
 
         private void Awake()
