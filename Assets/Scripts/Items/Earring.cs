@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class Hair : Item
+    public class Earring : Item
     {
         
     }

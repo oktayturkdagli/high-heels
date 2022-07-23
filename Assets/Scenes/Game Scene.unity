@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 42070158}
   - component: {fileID: 42070159}
   m_Layer: 5
-  m_Name: Pants
+  m_Name: Earrings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HAIR C
+  m_text: BRACELET C
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -1455,7 +1455,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GIANT
+  m_text: NECKLACE B
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -1728,7 +1728,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HAIR B
+  m_text: BRACELET B
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -2937,7 +2937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DWARF
+  m_text: NECKLACE C
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -6938,7 +6938,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PANT C
+  m_text: EARRING C
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -7224,7 +7224,7 @@ GameObject:
   - component: {fileID: 747622177}
   - component: {fileID: 747622178}
   m_Layer: 5
-  m_Name: Hairs
+  m_Name: Bracelets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10278,7 +10278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PANTS
+  m_text: "EARR\u0130NGS"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -12504,10 +12504,9 @@ MonoBehaviour:
       level: 0
       diamond: 0
       itemsList:
-        Characters: []
-        Hairs: []
-        Chests: []
-        Pants: []
+        necklaces: []
+        bracelets: []
+        earrings: []
 --- !u!1 &1321666070
 GameObject:
   m_ObjectHideFlags: 0
@@ -12566,7 +12565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HAIRS
+  m_text: BRACELETS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -12974,7 +12973,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PANT B
+  m_text: EARRING B
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -13587,7 +13586,7 @@ GameObject:
   - component: {fileID: 1410546340}
   - component: {fileID: 1410546341}
   m_Layer: 5
-  m_Name: Characters
+  m_Name: Necklaces
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14106,7 +14105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHARACTERS
+  m_text: NECKLACES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -15231,7 +15230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PANT A
+  m_text: EARRING A
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -15399,7 +15398,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568530434}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -16466,7 +16465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NORMAL
+  m_text: NECKLACE A
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -18402,7 +18401,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HAIR A
+  m_text: BRACELET A
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
