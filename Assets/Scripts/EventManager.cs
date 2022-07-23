@@ -21,29 +21,16 @@ namespace Game
         }
         
         //Events are created
-        public event Action onLoadScene;
-        public event Action onStartLevel;
-        public event Action onFinishLevel;
+        public event Action onSwipeToRun;
         public event Action onWinLevel;
         public event Action onLoseLevel;
-        public event Action onAllowPlayerMovement;
         public event Action<CollectableItemType> onCollectAnItem;
         
         
         //Events cannot be triggered directly from another class so they are triggered via functions
-        public void OnLoadScene()
+        public void OnSwipeToRun()
         {
-            onLoadScene?.Invoke();
-        }
-        
-        public void OnStartLevel()
-        {
-            onStartLevel?.Invoke();
-        }
-        
-        public void OnFinishLevel()
-        {
-            onFinishLevel?.Invoke();
+            onSwipeToRun?.Invoke();
         }
         
         public void OnWinLevel()
@@ -54,11 +41,6 @@ namespace Game
         public void OnLoseLevel()
         {
             onLoseLevel?.Invoke();
-        }
-        
-        public void OnAllowPlayerMovement()
-        {
-            onAllowPlayerMovement?.Invoke();
         }
         
         public void OnCollectAnItem(CollectableItemType collectableItemType)

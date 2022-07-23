@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace Game
     {
         [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private TextMeshProUGUI diamondText;
-        
+        [SerializeField] private Canvas startCanvas, gameCanvas, shopCanvas, winCanvas, loseCanvas;
         public static UIManager Instance { get; set; }
         
         private void Awake()
@@ -26,12 +27,18 @@ namespace Game
         
         private void OnEnable()
         {
+            EventManager.Instance.onSwipeToRun += OnSwipeToRun;
             EventManager.Instance.onCollectAnItem += OnCollectAnItem;
+            EventManager.Instance.onWinLevel += OnWinLevel;
+            EventManager.Instance.onLoseLevel += OnLoseLevel;
         }
 
         private void OnDisable()
         {
             EventManager.Instance.onCollectAnItem -= OnCollectAnItem;
+            EventManager.Instance.onSwipeToRun -= OnSwipeToRun;
+            EventManager.Instance.onWinLevel -= OnWinLevel;
+            EventManager.Instance.onLoseLevel -= OnLoseLevel;
         }
 
         private void LoadInitialValues()
@@ -41,19 +48,46 @@ namespace Game
             diamondText.text = playerData.diamond.ToString();
         }
         
+        private void OnSwipeToRun()
+        {
+            HideCanvas(startCanvas);
+        }
+        
         private void OnCollectAnItem(CollectableItemType collectableItemType)
         {
             if (collectableItemType == CollectableItemType.Diamond)
             {
-                IncreaseDiamondCount();
+                diamondText.text = (int.Parse(diamondText.text) + 1).ToString(); // Increase diamond count
             }
         }
-
-        private void IncreaseDiamondCount()
+        
+        private void OnWinLevel()
         {
-            diamondText.text = (int.Parse(diamondText.text) + 1).ToString();
+            HideCanvas(gameCanvas);
+            ShowCanvas(winCanvas);
         }
         
+        private void OnLoseLevel()
+        {
+            HideCanvas(gameCanvas);
+            ShowCanvas(loseCanvas);
+        }
+
+        public void ShowCanvas(Canvas canvas)
+        {
+            StartCoroutine(ProcessCanvas(canvas, true));
+        }
+
+        public void HideCanvas(Canvas canvas)
+        {
+            StartCoroutine(ProcessCanvas(canvas, false));
+        }
         
+        private IEnumerator ProcessCanvas(Canvas canvas, bool enable)
+        {
+            yield return new WaitForSeconds(0.2f);
+            canvas.enabled = enable;
+        }
+
     }
 }
