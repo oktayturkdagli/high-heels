@@ -94,7 +94,7 @@ namespace Editor
             if (GUILayout.Button("Clear All Of Selected"))
                 Clear();
             if (GUILayout.Button("Save"))
-                levelDataManager.SaveLevelData();
+                levelDataManager.SaveData();
         }
     
         private void Draw3DObjectOnScene()
@@ -181,7 +181,7 @@ namespace Editor
                 position = position
             };
             currentLevelData.levelGrid.Add(levelItem);
-            levelDataManager.SaveLevelData();
+            levelDataManager.SaveData();
         }
     
         private void CreateRoad()
@@ -221,7 +221,7 @@ namespace Editor
                     i--;
                 }
             }
-            levelDataManager.SaveLevelData();
+            levelDataManager.SaveData();
         }
     
         private void ShowItemsInTabMenu()

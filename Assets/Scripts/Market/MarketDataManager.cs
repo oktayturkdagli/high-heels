@@ -28,15 +28,15 @@ namespace Game
              
         }
         
-        private void LoadLevelData()
+        private void LoadData()
         {
             FileManager.Instance.ReadData(this, DataType.Market);
         }
 
-        public void SaveLevelData()
+        public void SaveData()
         {
             FileManager.Instance.ReadData(this, DataType.Market);
-            LoadLevelData();
+            LoadData();
         }
         
     }

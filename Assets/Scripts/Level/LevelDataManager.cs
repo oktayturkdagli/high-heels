@@ -30,30 +30,30 @@ namespace Game
         
         private void LoadInitialValues()
         {
-            LoadLevelData();
+            LoadData();
             if (levelDataContainer == null || levelDataContainer.levelDataList == null || levelDataContainer.levelDataList.Count < 1)
             {
                 levelDataContainer = new LevelDataContainer();
                 levelDataContainer.levelDataList = new List<LevelData>();
                 levelDataContainer.levelDataList.Add(new LevelData());
-                SaveLevelData();
+                SaveData();
             } 
         }
 
-        private void LoadLevelData()
+        private void LoadData()
         {
             FileManager.Instance.ReadData(this, DataType.Level);
         }
 
-        public void SaveLevelData()
+        public void SaveData()
         {
             FileManager.Instance.WriteData(this, DataType.Level);
-            LoadLevelData();
+            LoadData();
         }
         
         public void DrawLevel(int levelIndex)
         {
-            LoadLevelData();
+            LoadData();
             
             if (levelIndex > levelDataContainer.levelDataList.Count)
                 levelIndex = 1;

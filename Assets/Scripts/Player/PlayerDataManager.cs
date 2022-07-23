@@ -37,7 +37,7 @@ namespace Game
 
         private void LoadInitialValues()
         {
-            LoadPlayerData();
+            LoadData();
             if (playerDataContainer == null || playerDataContainer.playerData == null)
             {
                 playerDataContainer = new PlayerDataContainer();
@@ -47,16 +47,16 @@ namespace Game
                 tempPlayerData.diamond = 0;
                 tempPlayerData.itemsList = new ItemsList();
                 playerDataContainer.playerData = tempPlayerData;
-                SavePlayerData();
+                SaveData();
             } 
         }
         
-        private void LoadPlayerData()
+        private void LoadData()
         {
             FileManager.Instance.ReadData(this, DataType.Player);
         }
 
-        private void SavePlayerData()
+        private void SaveData()
         {
             FileManager.Instance.WriteData(this, DataType.Player);
         }
@@ -72,7 +72,7 @@ namespace Game
         private void IncreaseDiamondCount()
         {
             playerDataContainer.playerData.diamond += 1;
-            SavePlayerData();
+            SaveData();
         }
         
     }
