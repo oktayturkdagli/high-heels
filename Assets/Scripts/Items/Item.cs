@@ -2,10 +2,21 @@ using UnityEngine;
 
 namespace Game
 {
-    public abstract class Item : MonoBehaviour
+    [System.Serializable]
+    public abstract class Item
     {
         public string title;
         public GameObject prefab;
+        public Sprite sprite;
         public int price;
+        public ItemType itemType;
+    }
+    
+    [System.Serializable]
+    public enum ItemType
+    {
+        Necklace,
+        Bracelet,
+        Earring
     }
 }
