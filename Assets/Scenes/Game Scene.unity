@@ -5124,6 +5124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelDataFile: {fileID: 4900000, guid: 551bd8662e2d94e47bb51ad0a23e0567, type: 3}
   playerDataFile: {fileID: 4900000, guid: 3b58748de46584ee0a56901bd6d8de12, type: 3}
+  marketDataFile: {fileID: 4900000, guid: 9cd27ecbd555946849e68b3eb1721f9f, type: 3}
 --- !u!1 &595307397
 GameObject:
   m_ObjectHideFlags: 0

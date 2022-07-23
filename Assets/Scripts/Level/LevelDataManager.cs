@@ -42,12 +42,12 @@ namespace Game
 
         private void LoadLevelData()
         {
-            FileManager.Instance.ReadLevelData(this);
+            FileManager.Instance.ReadData(this, DataType.Level);
         }
 
         public void SaveLevelData()
         {
-            FileManager.Instance.WriteLevelData(levelDataContainer);
+            FileManager.Instance.WriteData(this, DataType.Level);
             LoadLevelData();
         }
         

@@ -8,15 +8,9 @@ namespace Game
     {
         [SerializeField] private TextAsset levelDataFile;
         [SerializeField] private TextAsset playerDataFile;
-        private bool isLevelDataFileNull, isPlayerDataFileNull;
+        [SerializeField] private TextAsset marketDataFile;
 
         public static FileManager Instance { get; set; }
-
-        private void Start()
-        {
-            isLevelDataFileNull = levelDataFile == null;
-            isPlayerDataFileNull = playerDataFile == null;
-        }
 
         private void Awake()
         {
@@ -30,37 +24,59 @@ namespace Game
             }
         }
 
-        public void ReadLevelData(LevelDataManager levelDataManager)
+        public void ReadData(Object dataManager, DataType type)
         {
-            if (isLevelDataFileNull) return;
-            string data = File.ReadAllText(Application.dataPath + "/Resources/Jsons/" + levelDataFile.name + ".json");
-            levelDataManager.LevelDataContainer = JsonUtility.FromJson<LevelDataContainer>(data);
-        }
-
-        public void WriteLevelData(LevelDataContainer objectType)
-        {
-            if (isLevelDataFileNull || objectType == null)
-                return; 
+            if (dataManager == null) return;
             
-            WriteFile(objectType, levelDataFile);
-            
+            string data;
+            switch (type)
+            {
+                case DataType.Player:
+                    if (!playerDataFile) return; 
+                    data = File.ReadAllText(Application.dataPath + "/Resources/Jsons/" + playerDataFile.name + ".json");
+                    PlayerDataManager playerDataManager = dataManager as PlayerDataManager;
+                    playerDataManager.PlayerDataContainer = JsonUtility.FromJson<PlayerDataContainer>(data);
+                    break;
+                case DataType.Level:
+                    if (!levelDataFile) return; 
+                    data = File.ReadAllText(Application.dataPath + "/Resources/Jsons/" + levelDataFile.name + ".json");
+                    LevelDataManager levelDataManager = dataManager as LevelDataManager;
+                    levelDataManager.LevelDataContainer = JsonUtility.FromJson<LevelDataContainer>(data);
+                    break;
+                case DataType.Market:
+                    if (!marketDataFile) return; 
+                    data = File.ReadAllText(Application.dataPath + "/Resources/Jsons/" + marketDataFile.name + ".json");
+                    MarketDataManager marketDataManager = dataManager as MarketDataManager;
+                    marketDataManager.MarketDataContainer = JsonUtility.FromJson<MarketDataContainer>(data);
+                    break;
+            }
         }
         
-        public void ReadPlayerData(PlayerDataManager playerDataManager)
+        public void WriteData(Object dataManager, DataType type)
         {
-            if (isPlayerDataFileNull) return;
-            string data = File.ReadAllText(Application.dataPath + "/Resources/Jsons/" + playerDataFile.name + ".json");
-            playerDataManager.PlayerDataContainer = JsonUtility.FromJson<PlayerDataContainer>(data);
+            if (dataManager == null) return;
+            
+            switch (type)
+            {
+                case DataType.Player:
+                    if (!playerDataFile) return;
+                    PlayerDataManager playerDataManager = dataManager as PlayerDataManager;
+                    WriteFile(playerDataManager.PlayerDataContainer, playerDataFile);
+                    break;
+                case DataType.Level:
+                    if (!levelDataFile) return;
+                    LevelDataManager levelDataManager = dataManager as LevelDataManager;
+                    WriteFile(levelDataManager.LevelDataContainer, levelDataFile);
+                    break;
+                case DataType.Market:
+                    if (!marketDataFile) return;
+                    MarketDataManager marketDataManager = dataManager as MarketDataManager;
+                    WriteFile(marketDataManager.MarketDataContainer, marketDataFile);
+                    break;
+            }
+
         }
         
-        public void WritePlayerData(PlayerDataContainer objectType)
-        {
-            if (isPlayerDataFileNull || objectType == null)
-                return; 
-            
-            WriteFile(objectType, playerDataFile);
-        }
-
         private T ReadFile<T>(TextAsset fileToRead)
         {
             return JsonUtility.FromJson<T>(fileToRead.text);
@@ -72,5 +88,12 @@ namespace Game
             File.WriteAllText(Application.dataPath + "/Resources/Jsons/" + file.name + ".json", data);
         }
         
+    }
+
+    public enum DataType
+    {
+        Player,
+        Level,
+        Market
     }
 }

@@ -53,12 +53,12 @@ namespace Game
         
         private void LoadPlayerData()
         {
-            FileManager.Instance.ReadPlayerData(this);
+            FileManager.Instance.ReadData(this, DataType.Player);
         }
 
         private void SavePlayerData()
         {
-            FileManager.Instance.WritePlayerData(playerDataContainer);
+            FileManager.Instance.WriteData(this, DataType.Player);
         }
         
         private void OnCollectAnItem(CollectableItemType collectableItemType)
