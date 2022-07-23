@@ -8,7 +8,7 @@ namespace Game
     {
         [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private TextMeshProUGUI diamondText;
-        [SerializeField] private Canvas startCanvas, gameCanvas, shopCanvas, winCanvas, loseCanvas;
+        [SerializeField] private Canvas startCanvas, gameCanvas, marketCanvas, winCanvas, loseCanvas;
         public static UIManager Instance { get; set; }
         
         private void Awake()
