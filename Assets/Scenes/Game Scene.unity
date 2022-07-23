@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 42070158}
   - component: {fileID: 42070159}
   m_Layer: 5
-  m_Name: Panel3
+  m_Name: Pants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHEST NAME
+  m_text: HAIR C
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -1455,7 +1455,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CH. NAME
+  m_text: GIANT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -1728,7 +1728,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHEST NAME
+  m_text: HAIR B
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -2767,7 +2767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65159d756d61e4acdaa5204f50d151fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 09dda67106aeb4d30adffa7557ba6b8a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2937,7 +2937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CH. NAME
+  m_text: DWARF
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -6937,7 +6937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PANT NAME
+  m_text: PANT C
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -7223,7 +7223,7 @@ GameObject:
   - component: {fileID: 747622177}
   - component: {fileID: 747622178}
   m_Layer: 5
-  m_Name: Panel2
+  m_Name: Hairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9912,7 +9912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65159d756d61e4acdaa5204f50d151fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6f7adb587b277448fa202a6e9dc9880e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -12502,13 +12502,11 @@ MonoBehaviour:
       name: 
       level: 0
       diamond: 0
-      allItemsList:
+      itemsList:
         Characters: []
         Hairs: []
-        Heads: []
         Chests: []
         Pants: []
-        Shoes: []
 --- !u!1 &1321666070
 GameObject:
   m_ObjectHideFlags: 0
@@ -12567,7 +12565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHESTS
+  m_text: HAIRS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -12975,7 +12973,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PANT NAME
+  m_text: PANT B
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -13588,7 +13586,7 @@ GameObject:
   - component: {fileID: 1410546340}
   - component: {fileID: 1410546341}
   m_Layer: 5
-  m_Name: Panel1
+  m_Name: Characters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13993,6 +13991,8 @@ MonoBehaviour:
         position: {x: 0, y: 0, z: 19}
       - type: 2
         position: {x: -1, y: 0, z: 12}
+      - type: 2
+        position: {x: -1, y: 0, z: 10}
       width: 5
       height: 20
     - levelGrid:
@@ -15030,7 +15030,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65159d756d61e4acdaa5204f50d151fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b9d11904d42242fead717c5e3bdd3a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -15230,7 +15230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PANT NAME
+  m_text: PANT A
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -16178,7 +16178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65159d756d61e4acdaa5204f50d151fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5046059c22f14513a3d0de01bd02241, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -16465,7 +16465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CH. NAME
+  m_text: NORMAL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -16735,7 +16735,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65159d756d61e4acdaa5204f50d151fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a95045580e8b43949c70368d4d23f1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -16873,7 +16873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65159d756d61e4acdaa5204f50d151fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: edb83433504f440378ab3a97b137d894, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -17528,7 +17528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65159d756d61e4acdaa5204f50d151fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e358fb12d66154727aac4e5bcd811f14, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -18189,7 +18189,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65159d756d61e4acdaa5204f50d151fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 64822b036c45649beb3b15a9da1768b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -18401,7 +18401,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHEST NAME
+  m_text: HAIR A
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
   m_sharedMaterial: {fileID: -7871711633524556596, guid: 1fe977c585b8546b38c326b9037788a6, type: 2}
@@ -20729,7 +20729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65159d756d61e4acdaa5204f50d151fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17511b21d4ccf44e3b187e2fa8b9664a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

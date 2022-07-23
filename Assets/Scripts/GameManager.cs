@@ -7,7 +7,6 @@ namespace Game
         public static GameManager Instance { get; set; }
         public int level = 1;
         
-        
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -33,7 +32,7 @@ namespace Game
         private void Start()
         {
             level = PlayerDataManager.Instance.PlayerDataContainer.playerData.level;
-            LevelManager.Instance.DrawLevel(level);
+            LevelDataManager.Instance.DrawLevel(level);
         }
 
         private void OnSwipe(SwipeType swipeType)

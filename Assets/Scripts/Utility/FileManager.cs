@@ -30,11 +30,11 @@ namespace Game
             }
         }
 
-        public void ReadLevelData(LevelManager levelManager)
+        public void ReadLevelData(LevelDataManager levelDataManager)
         {
             if (isLevelDataFileNull) return;
             string data = File.ReadAllText(Application.dataPath + "/Resources/Jsons/" + levelDataFile.name + ".json");
-            levelManager.LevelDataContainer = JsonUtility.FromJson<LevelDataContainer>(data);
+            levelDataManager.LevelDataContainer = JsonUtility.FromJson<LevelDataContainer>(data);
         }
 
         public void WriteLevelData(LevelDataContainer objectType)

@@ -131,7 +131,6 @@ namespace Game
             switch (collision.gameObject.tag)
             {
                 case "CubeRed":
-                    Debug.Log("CubeRed");
                     EventManager.Instance.OnLoseLevel();
                     break;
             }

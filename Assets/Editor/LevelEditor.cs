@@ -6,10 +6,10 @@ using Game;
 
 namespace Editor
 {
-    [CustomEditor(typeof(LevelManager), true)]
+    [CustomEditor(typeof(LevelDataManager), true)]
     public class LevelEditor : UnityEditor.Editor
     {
-        private LevelManager levelManager;
+        private LevelDataManager levelDataManager;
         private LevelData currentLevelData ;
         private Vector3 mousePosition;
         private int levelIndex = 1;
@@ -22,7 +22,7 @@ namespace Editor
 
         private void OnEnable()
         {
-            levelManager = target as LevelManager;
+            levelDataManager = target as LevelDataManager;
             ShowItemsInTabMenu();
             SceneView.duringSceneGui += OnScene;
         }
@@ -36,7 +36,7 @@ namespace Editor
         {
             PullLevelData();
             
-            if (levelManager == null || currentLevelData == null)
+            if (levelDataManager == null || currentLevelData == null)
                 return;
             
             CheckInput();
@@ -78,7 +78,7 @@ namespace Editor
             serializedObject.ApplyModifiedProperties();
             EditorGUILayout.Space(20);
             EditorGUILayout.HelpBox(HelpBoxText, MessageType.None);
-            EditorUtility.SetDirty(levelManager);
+            EditorUtility.SetDirty(levelDataManager);
         }
 
         private void DrawMyButtons()
@@ -94,7 +94,7 @@ namespace Editor
             if (GUILayout.Button("Clear All Of Selected"))
                 Clear();
             if (GUILayout.Button("Save"))
-                levelManager.SaveLevelData();
+                levelDataManager.SaveLevelData();
         }
     
         private void Draw3DObjectOnScene()
@@ -181,7 +181,7 @@ namespace Editor
                 position = position
             };
             currentLevelData.levelGrid.Add(levelItem);
-            levelManager.SaveLevelData();
+            levelDataManager.SaveLevelData();
         }
     
         private void CreateRoad()
@@ -221,7 +221,7 @@ namespace Editor
                     i--;
                 }
             }
-            levelManager.SaveLevelData();
+            levelDataManager.SaveLevelData();
         }
     
         private void ShowItemsInTabMenu()
@@ -236,12 +236,12 @@ namespace Editor
 
         private void PullLevelData()
         {
-            if (levelManager != null && levelManager.LevelDataContainer != null)
+            if (levelDataManager != null && levelDataManager.LevelDataContainer != null)
             {
-                if (levelIndex > levelManager.LevelDataContainer.levelDataList.Count || levelIndex == 0)
-                    levelIndex = levelManager.LevelDataContainer.levelDataList.Count;
+                if (levelIndex > levelDataManager.LevelDataContainer.levelDataList.Count || levelIndex == 0)
+                    levelIndex = levelDataManager.LevelDataContainer.levelDataList.Count;
                 
-                currentLevelData = levelManager.LevelDataContainer.levelDataList[levelIndex - 1];
+                currentLevelData = levelDataManager.LevelDataContainer.levelDataList[levelIndex - 1];
             }
         }
     }

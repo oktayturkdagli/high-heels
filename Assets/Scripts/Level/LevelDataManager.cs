@@ -7,12 +7,12 @@ using Random = UnityEngine.Random;
 namespace Game
 {
     [ExecuteInEditMode]
-    public class LevelManager : MonoBehaviour
+    public class LevelDataManager : MonoBehaviour
     {
         [SerializeField] private LevelDataContainer levelDataContainer;
         
         public LevelDataContainer LevelDataContainer { get => levelDataContainer; set => levelDataContainer = value; }
-        public static LevelManager Instance { get; set; }
+        public static LevelDataManager Instance { get; set; }
 
         private void Awake()
         {

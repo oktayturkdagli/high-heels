@@ -45,7 +45,7 @@ namespace Game
                 tempPlayerData.name = "Player1";
                 tempPlayerData.level = 1;
                 tempPlayerData.diamond = 0;
-                tempPlayerData.allItemsList = new AllItemsList();
+                tempPlayerData.itemsList = new ItemsList();
                 playerDataContainer.playerData = tempPlayerData;
                 SavePlayerData();
             } 
