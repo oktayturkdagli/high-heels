@@ -5,9 +5,9 @@ namespace Game
     [System.Serializable]
     public class ItemsList
     {
-        public List<Necklace> necklaces;
-        public List<Bracelet> bracelets;
-        public List<Earring> earrings;
+        public List<Necklace> necklaces = new List<Necklace>();
+        public List<Bracelet> bracelets = new List<Bracelet>();
+        public List<Earring> earrings = new List<Earring>();
     }
 
 }

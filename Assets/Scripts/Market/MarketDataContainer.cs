@@ -9,6 +9,6 @@ namespace Game
     [System.Serializable]
     public class MarketData
     {
-        private ItemsList itemsList;
+        public ItemsList itemsList;
     }
 }
