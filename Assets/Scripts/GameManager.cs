@@ -6,7 +6,8 @@ namespace Game
     {
         public static GameManager Instance { get; set; }
         public int level = 1;
-
+        
+        
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -21,42 +22,28 @@ namespace Game
 
         private void OnEnable()
         {
-            EventManager.Instance.onLoadScene += OnLoadScene;
-            EventManager.Instance.onStartLevel += OnStartLevel;
-            EventManager.Instance.onFinishLevel += OnFinishLevel;
+            InputManager.Instance.onSwipe += OnSwipe;
         }
 
         private void OnDisable()
         {
-            EventManager.Instance.onStartLevel -= OnStartLevel;
-            EventManager.Instance.onFinishLevel -= OnFinishLevel;
+            InputManager.Instance.onSwipe -= OnSwipe;
         }
 
         private void Start()
         {
-            EventManager.Instance.OnLoadScene();
-        }
-
-        private void OnLoadScene()
-        {
             level = PlayerDataManager.Instance.PlayerDataContainer.playerData.level;
             LevelManager.Instance.DrawLevel(level);
-            EventManager.Instance.OnStartLevel();
         }
 
-        private void OnStartLevel()
+        private void OnSwipe(SwipeType swipeType)
         {
-            EventManager.Instance.OnAllowPlayerMovement();
-        }
-
-        private void OnFinishLevel()
-        {
-            //Do Nothing
-        }
-
-        public void OnDown()
-        {
-
+            if (swipeType != SwipeType.Left && swipeType != SwipeType.Right)
+                return;
+            
+            EventManager.Instance.OnSwipeToRun();
+            
+            InputManager.Instance.onSwipe -= OnSwipe;
         }
         
     }

@@ -32,7 +32,7 @@ namespace Game
                 }
                 else if (levelGrid[i].type == EnvironmentalItemTypes.Finish)
                 {
-                    item.transform.localScale = new Vector3(levelData.width * 2, 1, levelData.height * 2);
+                    item.transform.localScale = new Vector3(levelData.width * 2, 1, levelData.width * 2);
                     var position = item.transform.position;
                     position = new Vector3(position.x, -1, position.z);
                     item.transform.position = position;

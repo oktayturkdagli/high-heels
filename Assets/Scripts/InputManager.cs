@@ -8,7 +8,7 @@ namespace Game
         [SerializeField] private bool isUp, isDown, isMove, isStationary, isSwipe;
         [SerializeField] private SwipeType swipeType;
         [SerializeField] private Vector2 swipeDelta, moveDelta, startTouch, lastTouch;
-        private const float SwipeThreshold = 100f;
+        [SerializeField]  private float swipeThreshold = 300f;
 
         public bool IsUp
         {
@@ -150,7 +150,7 @@ namespace Game
             }
 
             //  Threshold
-            if (swipeDelta.magnitude <= SwipeThreshold) return;
+            if (swipeDelta.magnitude <= swipeThreshold) return;
 
             isSwipe = true;
             var x = swipeDelta.x;
@@ -214,4 +214,5 @@ namespace Game
         Up,
         Down
     }
+    
 }
