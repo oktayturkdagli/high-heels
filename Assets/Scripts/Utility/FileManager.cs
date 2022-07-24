@@ -8,7 +8,7 @@ namespace Game
     {
         [SerializeField] private TextAsset levelDataFile;
         [SerializeField] private TextAsset playerDataFile;
-        [SerializeField] private TextAsset marketDataFile;
+        [SerializeField] private TextAsset itemDataFile;
 
         public static FileManager Instance { get; set; }
 
@@ -43,11 +43,11 @@ namespace Game
                     LevelDataManager levelDataManager = dataManager as LevelDataManager;
                     levelDataManager.LevelDataContainer = JsonUtility.FromJson<LevelDataContainer>(data);
                     break;
-                case DataType.Market:
-                    if (!marketDataFile) return; 
-                    data = File.ReadAllText(Application.dataPath + "/Resources/Jsons/" + marketDataFile.name + ".json");
-                    MarketDataManager marketDataManager = dataManager as MarketDataManager;
-                    marketDataManager.MarketDataContainer = JsonUtility.FromJson<MarketDataContainer>(data);
+                case DataType.Item:
+                    if (!itemDataFile) return; 
+                    data = File.ReadAllText(Application.dataPath + "/Resources/Jsons/" + itemDataFile.name + ".json");
+                    ItemDataManager itemDataManager = dataManager as ItemDataManager;
+                    itemDataManager.ItemDataContainer = JsonUtility.FromJson<ItemDataContainer>(data);
                     break;
             }
         }
@@ -68,10 +68,10 @@ namespace Game
                     LevelDataManager levelDataManager = dataManager as LevelDataManager;
                     WriteFile(levelDataManager.LevelDataContainer, levelDataFile);
                     break;
-                case DataType.Market:
-                    if (!marketDataFile) return;
-                    MarketDataManager marketDataManager = dataManager as MarketDataManager;
-                    WriteFile(marketDataManager.MarketDataContainer, marketDataFile);
+                case DataType.Item:
+                    if (!itemDataFile) return;
+                    ItemDataManager itemDataManager = dataManager as ItemDataManager;
+                    WriteFile(itemDataManager.ItemDataContainer, itemDataFile);
                     break;
             }
 
@@ -94,6 +94,6 @@ namespace Game
     {
         Player,
         Level,
-        Market
+        Item
     }
 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5404996465924578868}
   - component: {fileID: 2010351132681256860}
   - component: {fileID: 7575706880422297323}
-  - component: {fileID: 3520783075602408917}
   m_Layer: 0
   m_Name: BraceletRenderer
   m_TagString: Untagged
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3520783075602408917
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009560980047726146}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3186333403112965549
 GameObject:
   m_ObjectHideFlags: 0

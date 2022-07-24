@@ -7,11 +7,11 @@ namespace Game
 {
     public class Market : MonoBehaviour
     {
-        private MarketData marketData;
+        private ItemData itemData;
         [SerializeField] private List<MarketItem> necklaces = new List<MarketItem>();
         [SerializeField] private List<MarketItem> bracelets = new List<MarketItem>();
         [SerializeField] private List<MarketItem> earrings = new List<MarketItem>();
-        public MarketData MarketData { get => marketData; set => marketData = value; }
+        public ItemData ItemData { get => itemData; set => itemData = value; }
         public static Market Instance { get; set; }
 
         private void Awake()
@@ -35,31 +35,37 @@ namespace Game
         
         private void UpdateList(ItemType itemType)
         {
-            ItemsList itemList = MarketDataManager.Instance.MarketDataContainer.marketData.itemsList;
-            List<MarketItem> processingList = necklaces;
-            List<Item> dataReceivingList = new List<Item>(itemList.necklaces); 
+            ItemsList itemList = ItemDataManager.Instance.ItemDataContainer.itemData.itemsList;
+            List<MarketItem> marketItems = necklaces;
+            List<Item> items = new List<Item>(itemList.necklaces); 
             if (itemType == ItemType.Bracelet)
             {
-                processingList = bracelets;
-                dataReceivingList = new List<Item>(itemList.bracelets);
+                marketItems = bracelets;
+                items = new List<Item>(itemList.bracelets);
             }
             else if (itemType == ItemType.Earring)
             {
-                processingList = earrings;
-                dataReceivingList = new List<Item>(itemList.earrings);
+                marketItems = earrings;
+                items = new List<Item>(itemList.earrings);
             }
             
-            if (processingList.Count < 1)
+            if (marketItems.Count < 1)
                 return;
             
-            for (var i = 0; i < processingList.Count; i++)
+            for (var i = 0; i < marketItems.Count; i++)
             {
-                if (i > dataReceivingList.Count - 1)
+                if (i > items.Count - 1)
                     return;
                     
-                processingList[i].title.text = dataReceivingList[i].title.ToUpper().Replace("_", " ");
-                processingList[i].image.sprite = dataReceivingList[i].sprite;
-                processingList[i].price.text = dataReceivingList[i].price.ToString();
+                marketItems[i].title.text = items[i].title.ToUpper().Replace("_", " ");
+                marketItems[i].image.sprite = items[i].sprite;
+                marketItems[i].price.text = items[i].price.ToString();
+                if (items[i].doesPlayerHave)
+                {
+                    marketItems[i].price.text = "USING";
+                    marketItems[i].button.image.color = Color.gray;
+                    marketItems[i].button.enabled = !items[i].doesPlayerHave;
+                }
             }
         }
         
@@ -71,6 +77,6 @@ namespace Game
         public TextMeshProUGUI title;
         public Image image;
         public TextMeshProUGUI price;
-        public ItemType itemType;
+        public Button button;
     }
 }
