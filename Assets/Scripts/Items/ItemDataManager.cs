@@ -1,13 +1,17 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
 namespace Game
 {
+    [ExecuteInEditMode]
     public class ItemDataManager : MonoBehaviour
     {
         [SerializeField] private ItemDataContainer itemDataContainer;
+        [SerializeField] private List<SceneItem> sceneItems;
         
         public ItemDataContainer ItemDataContainer { get => itemDataContainer; set => itemDataContainer = value; }
+        public List<SceneItem> SceneItems { get => sceneItems; set => sceneItems = value; }
         public static ItemDataManager Instance { get; set; }
 
         private void Awake()

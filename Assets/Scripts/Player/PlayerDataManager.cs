@@ -53,13 +53,12 @@ namespace Game
                 tempPlayerData.name = "Player1";
                 tempPlayerData.level = 1;
                 tempPlayerData.diamond = 0;
-                tempPlayerData.itemsList = new ItemsList();
                 playerDataContainer.playerData = tempPlayerData;
                 SaveData();
             } 
         }
         
-        private void LoadData()
+        public void LoadData()
         {
             FileManager.Instance.ReadData(this, DataType.Player);
         }

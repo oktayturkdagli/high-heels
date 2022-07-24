@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game
@@ -81,6 +82,7 @@ namespace Game
         
         public void UpdatePlayerItems()
         {
+            PlayerDataManager.Instance.LoadData();
             UpdatePlayerItem(ItemType.Necklace);
             UpdatePlayerItem(ItemType.Bracelet);
             UpdatePlayerItem(ItemType.Earring);
@@ -104,7 +106,6 @@ namespace Game
             }
             else if (itemType == ItemType.Bracelet)
             {
-                
                 playerItem = bracelet;
                 items = new List<Item>(itemList.bracelets);
             }
@@ -118,30 +119,30 @@ namespace Game
                 return;
             }
             
-            Item item = null;
+            int itemId = -1;
             for (int i = 0; i < items.Count; i++)
             {
                 if (items[i].doesPlayerHave)
                 {
-                    item = items[i];
+                    itemId = items[i].id;
                     break;
                 }
             }
-
-            if (item == null)
+            
+            if (itemId == -1) return;
+            List<SceneItem> sceneItems = ItemDataManager.Instance.SceneItems;
+            SceneItem sceneItem = sceneItems.FirstOrDefault(o => o.id == itemId);
+            if (sceneItem == null)
                 return;
             
             for (int i = 0; i < playerItem.parentObj.transform.childCount; i++)
-            {
                 playerItem.parentObj.transform.GetChild(i).gameObject.SetActive(false);
-            }
             
-            playerItem.prefabObj = item.prefab;
-            playerItem.prefabObj.transform.parent = playerItem.parentObj.transform;
-            playerItem.prefabObj.SetActive(true);
-            playerItem.prefabObj.transform.localPosition = Vector3.zero;
-            playerItem.prefabObj.transform.localScale = new Vector3(multiplier, multiplier, multiplier);
-
+            sceneItem.prefab.transform.parent = playerItem.parentObj.transform;
+            sceneItem.prefab.SetActive(true);
+            sceneItem.prefab.transform.localPosition = Vector3.zero;
+            sceneItem.prefab.transform.localScale = new Vector3(multiplier, multiplier, multiplier);
+            playerItem.prefabObj = sceneItem.prefab;
         }
         
         private void Walk()
@@ -218,6 +219,13 @@ namespace Game
         public GameObject parentObj;
         public GameObject prefabObj;
         public ItemType itemType;
+    }
+    
+    [System.Serializable]
+    public class SceneItem
+    {
+        public int id;
+        public GameObject prefab;
     }
     
     [System.Serializable]

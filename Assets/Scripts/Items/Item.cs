@@ -7,7 +7,6 @@ namespace Game
     {
         public int id;
         public string title;
-        public GameObject prefab;
         public Sprite sprite;
         public int price;
         public bool doesPlayerHave = false;

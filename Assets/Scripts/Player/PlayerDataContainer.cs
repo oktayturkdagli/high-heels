@@ -14,7 +14,6 @@ namespace Game
         public string name;
         public int level;
         public int diamond;
-        public ItemsList itemsList;
     }
     
 }
