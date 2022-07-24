@@ -36,7 +36,7 @@ namespace Game
             } 
         }
         
-        private void LoadData()
+        public void LoadData()
         {
             FileManager.Instance.ReadData(this, DataType.Item);
         }

@@ -5,6 +5,7 @@ namespace Game
     [System.Serializable]
     public abstract class Item
     {
+        public int id;
         public string title;
         public GameObject prefab;
         public Sprite sprite;

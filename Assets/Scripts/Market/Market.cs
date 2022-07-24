@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -56,17 +57,45 @@ namespace Game
             {
                 if (i > items.Count - 1)
                     return;
-                    
+
+                marketItems[i].id = items[i].id;
                 marketItems[i].title.text = items[i].title.ToUpper().Replace("_", " ");
                 marketItems[i].image.sprite = items[i].sprite;
                 marketItems[i].price.text = items[i].price.ToString();
+                marketItems[i].button.image.color = Color.white;
+                marketItems[i].button.enabled = !items[i].doesPlayerHave;
                 if (items[i].doesPlayerHave)
                 {
                     marketItems[i].price.text = "USING";
                     marketItems[i].button.image.color = Color.gray;
-                    marketItems[i].button.enabled = !items[i].doesPlayerHave;
                 }
             }
+        }
+
+        public void Sell(int id)
+        {
+            ItemsList itemList = ItemDataManager.Instance.ItemDataContainer.itemData.itemsList;
+            List<Item> items = null;
+            Necklace isFoundNecklace = itemList.necklaces.FirstOrDefault(p => p.id == id);
+            Bracelet isFoundBracelet = itemList.bracelets.FirstOrDefault(p => p.id == id);
+            Earring isFoundEarring = itemList.earrings.FirstOrDefault(p => p.id == id);
+            if (isFoundNecklace != null)
+                items = new List<Item>(itemList.necklaces);
+            else if (isFoundBracelet != null)
+                items = new List<Item>(itemList.bracelets);
+            else if (isFoundEarring != null)
+                items = new List<Item>(itemList.earrings);
+
+            for (var i = 0; i < items.Count; i++)
+            {
+                items[i].doesPlayerHave = false;
+                if (items[i].id == id)
+                    items[i].doesPlayerHave = true;
+            }
+            
+            ItemDataManager.Instance.SaveData();
+            ItemDataManager.Instance.LoadData();
+            UpdateMarket();
         }
         
     }
@@ -74,6 +103,7 @@ namespace Game
     [System.Serializable]
     public class MarketItem
     {
+        public int id;
         public TextMeshProUGUI title;
         public Image image;
         public TextMeshProUGUI price;

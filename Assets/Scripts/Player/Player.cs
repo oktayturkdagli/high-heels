@@ -91,10 +91,16 @@ namespace Game
         private void UpdatePlayerItem(ItemType itemType)
         {
             ItemsList itemList = ItemDataManager.Instance.ItemDataContainer.itemData.itemsList;
-            PlayerItem playerItem = necklace;
-            List<Item> items = new List<Item>(itemList.necklaces); 
-            if (itemType == ItemType.Bracelet)
+            PlayerItem playerItem = null;
+            List<Item> items = null;
+            if (itemType == ItemType.Necklace)
             {
+                playerItem = necklace;
+                items = new List<Item>(itemList.necklaces);
+            }
+            else if (itemType == ItemType.Bracelet)
+            {
+                
                 playerItem = bracelet;
                 items = new List<Item>(itemList.bracelets);
             }
@@ -103,7 +109,11 @@ namespace Game
                 playerItem = earring;
                 items = new List<Item>(itemList.earrings);
             }
-
+            else
+            {
+                return;
+            }
+            
             Item item = null;
             for (int i = 0; i < items.Count; i++)
             {
@@ -121,8 +131,9 @@ namespace Game
             {
                 playerItem.parentObj.transform.GetChild(i).gameObject.SetActive(false);
             }
+            
             playerItem.prefabObj = item.prefab;
-            playerItem.prefabObj.transform.SetParent(playerItem.parentObj.transform);
+            playerItem.prefabObj.transform.parent = playerItem.parentObj.transform;
             playerItem.prefabObj.SetActive(true);
             playerItem.prefabObj.transform.localPosition = Vector3.zero;
             

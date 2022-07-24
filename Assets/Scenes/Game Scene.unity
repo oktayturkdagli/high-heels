@@ -1052,7 +1052,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 117680510}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1922138897}
+        m_TargetAssemblyTypeName: Game.Market, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &117680510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2119,7 +2131,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 205266731}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1922138897}
+        m_TargetAssemblyTypeName: Game.Market, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &205266731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2375,7 +2399,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 212906638}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1922138897}
+        m_TargetAssemblyTypeName: Game.Market, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &212906638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4707,6 +4743,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 757691234}
+        m_TargetAssemblyTypeName: Game.Player, Assembly-CSharp
+        m_MethodName: UpdatePlayerItems
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &471452823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4930,7 +4978,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 489196219}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1922138897}
+        m_TargetAssemblyTypeName: Game.Market, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &489196219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7278,6 +7338,17 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &757691234 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 60898450622649768, guid: 4282e840dee5f400f8482878c6986dfb, type: 3}
+  m_PrefabInstance: {fileID: 1886445064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b755992ce74f719d8ca27d1f9b0171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &767657867
 GameObject:
   m_ObjectHideFlags: 0
@@ -9670,7 +9741,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 961279837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1922138897}
+        m_TargetAssemblyTypeName: Game.Market, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &961279837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11104,7 +11187,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1149580347}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1922138897}
+        m_TargetAssemblyTypeName: Game.Market, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1149580347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13313,57 +13408,66 @@ MonoBehaviour:
     itemData:
       itemsList:
         necklaces:
-        - title: NECKLACE_A
+        - id: 0
+          title: NECKLACE_A
           prefab: {fileID: 1886445068}
           sprite: {fileID: 21300000, guid: 43e7c906aca524803b4b6f59659375ec, type: 3}
           price: 1
           doesPlayerHave: 0
           itemType: 0
-        - title: NECKLACE_B
+        - id: 1
+          title: NECKLACE_B
           prefab: {fileID: 1886445067}
           sprite: {fileID: 21300000, guid: 6b1c656e9174e42739e843951bece3be, type: 3}
           price: 3
           doesPlayerHave: 1
           itemType: 0
-        - title: NECKLACE_C
+        - id: 2
+          title: NECKLACE_C
           prefab: {fileID: 1886445066}
           sprite: {fileID: 21300000, guid: 9b142f4deb069426eaca9ebed07a3688, type: 3}
           price: 3
           doesPlayerHave: 0
           itemType: 0
         bracelets:
-        - title: BRACELET_A
+        - id: 3
+          title: BRACELET_A
           prefab: {fileID: 1886445074}
           sprite: {fileID: 21300000, guid: 22de8b0e67d4940bab270b489dc1f298, type: 3}
           price: 2
           doesPlayerHave: 0
           itemType: 1
-        - title: BRACELET_B
+        - id: 4
+          title: BRACELET_B
           prefab: {fileID: 1886445073}
           sprite: {fileID: 21300000, guid: 9c3e2478f7260460a8a013f8b888ad70, type: 3}
           price: 2
           doesPlayerHave: 1
           itemType: 1
-        - title: BRACELET_C
+        - id: 5
+          title: BRACELET_C
           prefab: {fileID: 1886445072}
           sprite: {fileID: 21300000, guid: 9b6d6c4225f5a4844be6f1ee45855ebb, type: 3}
           price: 4
           doesPlayerHave: 0
           itemType: 1
         earrings:
-        - title: EARRING_A
+        - id: 6
+          title: EARRING_A
           prefab: {fileID: 1886445071}
           sprite: {fileID: 21300000, guid: 0bfbce627330b4ffc9f03aee0d7ba05c, type: 3}
           price: 6
           doesPlayerHave: 0
           itemType: 2
-        - title: EARRING_B
+        - id: 7
+          title: EARRING_B
           prefab: {fileID: 1886445070}
           sprite: {fileID: 21300000, guid: 34bf17bc6363c41e9b94ee9e4d22e991, type: 3}
           price: 6
           doesPlayerHave: 1
           itemType: 2
-        - title: EARRING_C
+        - id: 8
+          title: EARRING_C
           prefab: {fileID: 1886445069}
           sprite: {fileID: 21300000, guid: 0fba4cfe8e812442a83ddfe25de82f2b, type: 3}
           price: 3
@@ -13640,7 +13744,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1401666053}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1922138897}
+        m_TargetAssemblyTypeName: Game.Market, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1401666053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17256,7 +17372,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1797395865}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1922138897}
+        m_TargetAssemblyTypeName: Game.Market, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1797395865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17871,7 +17999,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1849405186}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1922138897}
+        m_TargetAssemblyTypeName: Game.Market, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1849405186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18539,41 +18679,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   necklaces:
-  - title: {fileID: 1701227992}
+  - id: 0
+    title: {fileID: 1701227992}
     image: {fileID: 1747933972}
     price: {fileID: 682647177}
     button: {fileID: 205266730}
-  - title: {fileID: 170957430}
+  - id: 1
+    title: {fileID: 170957430}
     image: {fileID: 2088002577}
     price: {fileID: 1829222409}
     button: {fileID: 489196218}
-  - title: {fileID: 270272625}
+  - id: 2
+    title: {fileID: 270272625}
     image: {fileID: 1722225522}
     price: {fileID: 1700338377}
     button: {fileID: 1149580346}
   bracelets:
-  - title: {fileID: 1932299514}
+  - id: 3
+    title: {fileID: 1932299514}
     image: {fileID: 1535594230}
     price: {fileID: 113235621}
     button: {fileID: 1849405185}
-  - title: {fileID: 193752097}
+  - id: 4
+    title: {fileID: 193752097}
     image: {fileID: 965576608}
     price: {fileID: 1845907642}
     button: {fileID: 961279836}
-  - title: {fileID: 43687956}
+  - id: 5
+    title: {fileID: 43687956}
     image: {fileID: 1897369834}
     price: {fileID: 958682381}
     button: {fileID: 1401666052}
   earrings:
-  - title: {fileID: 1549025207}
+  - id: 6
+    title: {fileID: 1549025207}
     image: {fileID: 1692656445}
     price: {fileID: 1706466018}
     button: {fileID: 212906637}
-  - title: {fileID: 1379367704}
+  - id: 7
+    title: {fileID: 1379367704}
     image: {fileID: 1845109686}
     price: {fileID: 620064874}
     button: {fileID: 117680509}
-  - title: {fileID: 718348423}
+  - id: 8
+    title: {fileID: 718348423}
     image: {fileID: 244992563}
     price: {fileID: 2009028442}
     button: {fileID: 1797395864}
