@@ -28,11 +28,19 @@ namespace Game
         private void OnEnable()
         {
             EventManager.Instance.onCollectAnItem += OnCollectAnItem;
+            EventManager.Instance.onWinLevel += OnWinLevel;
         }
 
         private void OnDisable()
         {
             EventManager.Instance.onCollectAnItem -= OnCollectAnItem;
+            EventManager.Instance.onWinLevel -= OnWinLevel;
+        }
+
+        private void OnWinLevel()
+        {
+            playerDataContainer.playerData.level += 1;
+            SaveData();
         }
 
         private void LoadInitialValues()

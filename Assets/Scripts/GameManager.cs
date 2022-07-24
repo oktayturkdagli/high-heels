@@ -5,7 +5,7 @@ namespace Game
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; set; }
-        public int level = 1;
+        private int level;
         
         private void Awake()
         {

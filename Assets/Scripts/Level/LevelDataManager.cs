@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Game
@@ -27,7 +27,7 @@ namespace Game
 
             LoadInitialValues();
         }
-        
+
         private void LoadInitialValues()
         {
             LoadData();
@@ -56,11 +56,23 @@ namespace Game
             LoadData();
             
             if (levelIndex > levelDataContainer.levelDataList.Count)
-                levelIndex = 1;
+            {
+                levelIndex = (levelIndex % levelDataContainer.levelDataList.Count) + 1;
+            }
+                
             
             Level level = new Level(levelDataContainer.levelDataList[levelIndex - 1]);
             level.Draw();
         }
         
+        public void NextLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        
+        public void RestartLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
