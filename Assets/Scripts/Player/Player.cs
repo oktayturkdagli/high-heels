@@ -7,7 +7,7 @@ namespace Game
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private int multiplier = 1;
+        [SerializeField] private CharacterType characterType = CharacterType.Ordinary;
         [SerializeField] private int speed = 2;
         [SerializeField] private bool canMove = false;
         [SerializeField] private Vector3 direction = Vector3.forward;
@@ -19,8 +19,6 @@ namespace Game
         private static readonly int AnimatorParameterWalk = Animator.StringToHash("Walk");
         private static readonly int AnimatorParameterDance = Animator.StringToHash("Dance");
         private static readonly int AnimatorParameterBeSad = Animator.StringToHash("BeSad");
-        
-        public int Multiplier { get => multiplier; set => multiplier = value; }
 
         private void Start()
         {
@@ -90,6 +88,12 @@ namespace Game
         
         private void UpdatePlayerItem(ItemType itemType)
         {
+            float multiplier = 1;
+            if (characterType == CharacterType.Giant)
+                multiplier = 2;
+            else if (characterType == CharacterType.Dwarf)
+                multiplier = 0.5f;
+
             ItemsList itemList = ItemDataManager.Instance.ItemDataContainer.itemData.itemsList;
             PlayerItem playerItem = null;
             List<Item> items = null;
@@ -136,7 +140,8 @@ namespace Game
             playerItem.prefabObj.transform.parent = playerItem.parentObj.transform;
             playerItem.prefabObj.SetActive(true);
             playerItem.prefabObj.transform.localPosition = Vector3.zero;
-            
+            playerItem.prefabObj.transform.localScale = new Vector3(multiplier, multiplier, multiplier);
+
         }
         
         private void Walk()
@@ -213,5 +218,13 @@ namespace Game
         public GameObject parentObj;
         public GameObject prefabObj;
         public ItemType itemType;
+    }
+    
+    [System.Serializable]
+    public enum CharacterType
+    {
+        Ordinary,
+        Giant,
+        Dwarf
     }
 }
