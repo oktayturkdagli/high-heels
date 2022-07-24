@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game
@@ -11,6 +12,9 @@ namespace Game
         [SerializeField] private bool canMove = false;
         [SerializeField] private Vector3 direction = Vector3.forward;
         [SerializeField] private float horizontalBorderSize = 5;
+        [SerializeField] private PlayerItem necklace = new PlayerItem();
+        [SerializeField] private PlayerItem bracelet = new PlayerItem();
+        [SerializeField] private PlayerItem earring = new PlayerItem();
         private Animator playerAnimator;
         private static readonly int AnimatorParameterWalk = Animator.StringToHash("Walk");
         private static readonly int AnimatorParameterDance = Animator.StringToHash("Dance");
@@ -21,6 +25,7 @@ namespace Game
         private void Start()
         {
             playerAnimator = GetComponent<Animator>();
+            UpdatePlayerItems();
         }
 
         private void OnEnable()
@@ -74,6 +79,53 @@ namespace Game
         private void Update()
         {
             Walk();
+        }
+        
+        public void UpdatePlayerItems()
+        {
+            UpdatePlayerItem(ItemType.Necklace);
+            UpdatePlayerItem(ItemType.Bracelet);
+            UpdatePlayerItem(ItemType.Earring);
+        }
+        
+        private void UpdatePlayerItem(ItemType itemType)
+        {
+            ItemsList itemList = ItemDataManager.Instance.ItemDataContainer.itemData.itemsList;
+            PlayerItem playerItem = necklace;
+            List<Item> items = new List<Item>(itemList.necklaces); 
+            if (itemType == ItemType.Bracelet)
+            {
+                playerItem = bracelet;
+                items = new List<Item>(itemList.bracelets);
+            }
+            else if (itemType == ItemType.Earring)
+            {
+                playerItem = earring;
+                items = new List<Item>(itemList.earrings);
+            }
+
+            Item item = null;
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].doesPlayerHave)
+                {
+                    item = items[i];
+                    break;
+                }
+            }
+
+            if (item == null)
+                return;
+            
+            for (int i = 0; i < playerItem.parentObj.transform.childCount; i++)
+            {
+                playerItem.parentObj.transform.GetChild(i).gameObject.SetActive(false);
+            }
+            playerItem.prefabObj = item.prefab;
+            playerItem.prefabObj.transform.SetParent(playerItem.parentObj.transform);
+            playerItem.prefabObj.SetActive(true);
+            playerItem.prefabObj.transform.localPosition = Vector3.zero;
+            
         }
         
         private void Walk()
@@ -142,5 +194,13 @@ namespace Game
             canMove = enable;
         }
         
+    }
+    
+    [System.Serializable]
+    public class PlayerItem
+    {
+        public GameObject parentObj;
+        public GameObject prefabObj;
+        public ItemType itemType;
     }
 }
