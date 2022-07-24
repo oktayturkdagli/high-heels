@@ -5124,7 +5124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelDataFile: {fileID: 4900000, guid: 551bd8662e2d94e47bb51ad0a23e0567, type: 3}
   playerDataFile: {fileID: 4900000, guid: 3b58748de46584ee0a56901bd6d8de12, type: 3}
-  marketDataFile: {fileID: 4900000, guid: 9cd27ecbd555946849e68b3eb1721f9f, type: 3}
+  itemDataFile: {fileID: 4900000, guid: 45a4fcdd4894a4a2fab6969c5b2c7fff, type: 3}
 --- !u!1 &595307397
 GameObject:
   m_ObjectHideFlags: 0
@@ -12439,7 +12439,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1497141181}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1309475092
 MonoBehaviour:
@@ -13265,6 +13265,110 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 264214752964200869, guid: 47ff5d3ba90e24346bc8038c5166de72, type: 3}
   m_PrefabInstance: {fileID: 1388892243}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1390293066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1390293067}
+  - component: {fileID: 1390293068}
+  m_Layer: 0
+  m_Name: ItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1390293067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390293066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1497141181}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1390293068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390293066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78de896865e24c249eece46e541ed175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDataContainer:
+    itemData:
+      itemsList:
+        necklaces:
+        - title: NECKLACE_A
+          prefab: {fileID: 1886445068}
+          sprite: {fileID: 21300000, guid: 43e7c906aca524803b4b6f59659375ec, type: 3}
+          price: 1
+          doesPlayerHave: 0
+          itemType: 0
+        - title: NECKLACE_B
+          prefab: {fileID: 1886445067}
+          sprite: {fileID: 21300000, guid: 6b1c656e9174e42739e843951bece3be, type: 3}
+          price: 3
+          doesPlayerHave: 1
+          itemType: 0
+        - title: NECKLACE_C
+          prefab: {fileID: 1886445066}
+          sprite: {fileID: 21300000, guid: 9b142f4deb069426eaca9ebed07a3688, type: 3}
+          price: 3
+          doesPlayerHave: 0
+          itemType: 0
+        bracelets:
+        - title: BRACELET_A
+          prefab: {fileID: 1886445074}
+          sprite: {fileID: 21300000, guid: 22de8b0e67d4940bab270b489dc1f298, type: 3}
+          price: 2
+          doesPlayerHave: 0
+          itemType: 1
+        - title: BRACELET_B
+          prefab: {fileID: 1886445073}
+          sprite: {fileID: 21300000, guid: 9c3e2478f7260460a8a013f8b888ad70, type: 3}
+          price: 2
+          doesPlayerHave: 1
+          itemType: 1
+        - title: BRACELET_C
+          prefab: {fileID: 1886445072}
+          sprite: {fileID: 21300000, guid: 9b6d6c4225f5a4844be6f1ee45855ebb, type: 3}
+          price: 4
+          doesPlayerHave: 0
+          itemType: 1
+        earrings:
+        - title: EARRING_A
+          prefab: {fileID: 1886445071}
+          sprite: {fileID: 21300000, guid: 0bfbce627330b4ffc9f03aee0d7ba05c, type: 3}
+          price: 6
+          doesPlayerHave: 0
+          itemType: 2
+        - title: EARRING_B
+          prefab: {fileID: 1886445070}
+          sprite: {fileID: 21300000, guid: 34bf17bc6363c41e9b94ee9e4d22e991, type: 3}
+          price: 6
+          doesPlayerHave: 1
+          itemType: 2
+        - title: EARRING_C
+          prefab: {fileID: 1886445069}
+          sprite: {fileID: 21300000, guid: 0fba4cfe8e812442a83ddfe25de82f2b, type: 3}
+          price: 3
+          doesPlayerHave: 0
+          itemType: 2
 --- !u!1 &1398479393
 GameObject:
   m_ObjectHideFlags: 0
@@ -14314,6 +14418,7 @@ Transform:
   - {fileID: 1316042599}
   - {fileID: 1922138895}
   - {fileID: 378303210}
+  - {fileID: 1390293067}
   - {fileID: 1604214773}
   - {fileID: 1309475089}
   m_Father: {fileID: 0}
@@ -15783,7 +15888,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1497141181}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1604214774
 MonoBehaviour:
@@ -18132,6 +18237,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5285328296289556993, guid: 4282e840dee5f400f8482878c6986dfb, type: 3}
   m_PrefabInstance: {fileID: 1886445064}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886445066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5790166363090619528, guid: 4282e840dee5f400f8482878c6986dfb, type: 3}
+  m_PrefabInstance: {fileID: 1886445064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886445067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2875922075040797272, guid: 4282e840dee5f400f8482878c6986dfb, type: 3}
+  m_PrefabInstance: {fileID: 1886445064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886445068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1755846583714442367, guid: 4282e840dee5f400f8482878c6986dfb, type: 3}
+  m_PrefabInstance: {fileID: 1886445064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886445069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6703783064945394880, guid: 4282e840dee5f400f8482878c6986dfb, type: 3}
+  m_PrefabInstance: {fileID: 1886445064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886445070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6705886301834617967, guid: 4282e840dee5f400f8482878c6986dfb, type: 3}
+  m_PrefabInstance: {fileID: 1886445064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886445071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2441751530004351524, guid: 4282e840dee5f400f8482878c6986dfb, type: 3}
+  m_PrefabInstance: {fileID: 1886445064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886445072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8616243896502495625, guid: 4282e840dee5f400f8482878c6986dfb, type: 3}
+  m_PrefabInstance: {fileID: 1886445064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886445073 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7881611995295670440, guid: 4282e840dee5f400f8482878c6986dfb, type: 3}
+  m_PrefabInstance: {fileID: 1886445064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886445074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1010112566113674327, guid: 4282e840dee5f400f8482878c6986dfb, type: 3}
+  m_PrefabInstance: {fileID: 1886445064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1897369832
 GameObject:
   m_ObjectHideFlags: 0
@@ -18353,7 +18503,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1922138895}
-  - component: {fileID: 1922138896}
   - component: {fileID: 1922138897}
   m_Layer: 0
   m_Name: MarketManager
@@ -18377,24 +18526,6 @@ Transform:
   m_Father: {fileID: 1497141181}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1922138896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922138894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93266358f2f44e189552f12b6c5114d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  marketDataContainer:
-    marketData:
-      itemsList:
-        necklaces: []
-        bracelets: []
-        earrings: []
 --- !u!114 &1922138897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18411,41 +18542,41 @@ MonoBehaviour:
   - title: {fileID: 1701227992}
     image: {fileID: 1747933972}
     price: {fileID: 682647177}
-    itemType: 0
+    button: {fileID: 205266730}
   - title: {fileID: 170957430}
     image: {fileID: 2088002577}
     price: {fileID: 1829222409}
-    itemType: 0
+    button: {fileID: 489196218}
   - title: {fileID: 270272625}
     image: {fileID: 1722225522}
     price: {fileID: 1700338377}
-    itemType: 0
+    button: {fileID: 1149580346}
   bracelets:
   - title: {fileID: 1932299514}
     image: {fileID: 1535594230}
     price: {fileID: 113235621}
-    itemType: 0
+    button: {fileID: 1849405185}
   - title: {fileID: 193752097}
     image: {fileID: 965576608}
     price: {fileID: 1845907642}
-    itemType: 0
+    button: {fileID: 961279836}
   - title: {fileID: 43687956}
     image: {fileID: 1897369834}
     price: {fileID: 958682381}
-    itemType: 0
+    button: {fileID: 1401666052}
   earrings:
   - title: {fileID: 1549025207}
     image: {fileID: 1692656445}
     price: {fileID: 1706466018}
-    itemType: 0
+    button: {fileID: 212906637}
   - title: {fileID: 1379367704}
     image: {fileID: 1845109686}
     price: {fileID: 620064874}
-    itemType: 0
+    button: {fileID: 117680509}
   - title: {fileID: 718348423}
     image: {fileID: 244992563}
     price: {fileID: 2009028442}
-    itemType: 0
+    button: {fileID: 1797395864}
 --- !u!1 &1932299512
 GameObject:
   m_ObjectHideFlags: 0

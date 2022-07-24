@@ -9,6 +9,7 @@ namespace Game
         public GameObject prefab;
         public Sprite sprite;
         public int price;
+        public bool doesPlayerHave = false;
         public ItemType itemType;
     }
     
