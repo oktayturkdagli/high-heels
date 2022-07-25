@@ -13423,79 +13423,79 @@ MonoBehaviour:
         necklaces:
         - id: 0
           title: NECKLACE_A
-          sprite: {fileID: 21300000, guid: 43e7c906aca524803b4b6f59659375ec, type: 3}
-          price: 2
-          doesPlayerHave: 1
-          itemType: 0
-        - id: 1
-          title: NECKLACE_B
-          sprite: {fileID: 21300000, guid: 6b1c656e9174e42739e843951bece3be, type: 3}
           price: 2
           doesPlayerHave: 0
           itemType: 0
+        - id: 1
+          title: NECKLACE_B
+          price: 2
+          doesPlayerHave: 1
+          itemType: 0
         - id: 2
           title: NECKLACE_C
-          sprite: {fileID: 21300000, guid: 9b142f4deb069426eaca9ebed07a3688, type: 3}
           price: 2
           doesPlayerHave: 0
           itemType: 0
         bracelets:
         - id: 3
           title: BRACELET_A
-          sprite: {fileID: 21300000, guid: 22de8b0e67d4940bab270b489dc1f298, type: 3}
           price: 1
           doesPlayerHave: 0
           itemType: 1
         - id: 4
           title: BRACELET_B
-          sprite: {fileID: 21300000, guid: 9c3e2478f7260460a8a013f8b888ad70, type: 3}
           price: 1
           doesPlayerHave: 0
           itemType: 1
         - id: 5
           title: BRACELET_C
-          sprite: {fileID: 21300000, guid: 9b6d6c4225f5a4844be6f1ee45855ebb, type: 3}
           price: 1
           doesPlayerHave: 1
           itemType: 1
         earrings:
         - id: 6
           title: EARRING_A
-          sprite: {fileID: 21300000, guid: 0bfbce627330b4ffc9f03aee0d7ba05c, type: 3}
           price: 0
           doesPlayerHave: 0
           itemType: 2
         - id: 7
           title: EARRING_B
-          sprite: {fileID: 21300000, guid: 34bf17bc6363c41e9b94ee9e4d22e991, type: 3}
           price: 1
-          doesPlayerHave: 1
+          doesPlayerHave: 0
           itemType: 2
         - id: 8
           title: EARRING_C
-          sprite: {fileID: 21300000, guid: 0fba4cfe8e812442a83ddfe25de82f2b, type: 3}
           price: 1
           doesPlayerHave: 1
           itemType: 2
   sceneItems:
   - id: 0
     prefab: {fileID: 1202008451}
+    sprite: {fileID: 21300000, guid: 43e7c906aca524803b4b6f59659375ec, type: 3}
   - id: 1
     prefab: {fileID: 1886445067}
+    sprite: {fileID: 21300000, guid: 6b1c656e9174e42739e843951bece3be, type: 3}
   - id: 2
     prefab: {fileID: 1886445066}
+    sprite: {fileID: 21300000, guid: 9b142f4deb069426eaca9ebed07a3688, type: 3}
   - id: 3
     prefab: {fileID: 661121719}
+    sprite: {fileID: 21300000, guid: 22de8b0e67d4940bab270b489dc1f298, type: 3}
   - id: 4
     prefab: {fileID: 1341616549}
+    sprite: {fileID: 21300000, guid: 9c3e2478f7260460a8a013f8b888ad70, type: 3}
   - id: 5
     prefab: {fileID: 1615232545}
+    sprite: {fileID: 21300000, guid: 9b6d6c4225f5a4844be6f1ee45855ebb, type: 3}
   - id: 6
     prefab: {fileID: 1289920567}
+    sprite: {fileID: 21300000, guid: 0bfbce627330b4ffc9f03aee0d7ba05c, type: 3}
   - id: 7
     prefab: {fileID: 621667934}
+    sprite: {fileID: 21300000, guid: 34bf17bc6363c41e9b94ee9e4d22e991, type: 3}
   - id: 8
     prefab: {fileID: 643814460}
+    sprite: {fileID: 21300000, guid: 0fba4cfe8e812442a83ddfe25de82f2b, type: 3}
 --- !u!1 &1398479393
 GameObject:
   m_ObjectHideFlags: 0
@@ -14233,55 +14233,61 @@ MonoBehaviour:
       - type: 5
         position: {x: 0, y: 0, z: 19}
       - type: 2
-        position: {x: -1, y: 0, z: 12}
+        position: {x: -1, y: 0, z: 13}
       - type: 2
-        position: {x: -1, y: 0, z: 10}
+        position: {x: 2, y: 0, z: 13}
       - type: 4
-        position: {x: 1, y: 0, z: 11}
+        position: {x: 0, y: 0, z: 11}
       width: 5
       height: 20
     - levelGrid:
       - type: 1
         position: {x: 0, y: -1, z: 0}
       - type: 5
-        position: {x: 0, y: 0, z: 27}
+        position: {x: 0, y: 0, z: 18}
       - type: 2
-        position: {x: -1, y: 0, z: 14}
+        position: {x: -1, y: 0, z: 12}
       - type: 2
-        position: {x: 2, y: 0, z: 17}
-      - type: 2
-        position: {x: 2, y: 0, z: 19}
-      - type: 2
-        position: {x: -1, y: 0.0000009536743, z: 19}
+        position: {x: -1, y: 0, z: 11}
       - type: 2
         position: {x: 2, y: 0, z: 11}
       - type: 2
-        position: {x: -1, y: 0, z: 10}
+        position: {x: 2, y: 0.00000023841858, z: 12}
+      - type: 4
+        position: {x: 0, y: 0, z: 11}
+      - type: 4
+        position: {x: 0, y: 0, z: 12}
+      - type: 4
+        position: {x: 1, y: 0, z: 11}
       - type: 4
         position: {x: 1, y: 0, z: 12}
-      - type: 4
-        position: {x: 1, y: 0, z: 14}
-      - type: 4
-        position: {x: 1, y: 0, z: 16}
       width: 5
-      height: 30
+      height: 20
     - levelGrid:
       - type: 1
         position: {x: 0, y: -1, z: 0}
       - type: 5
-        position: {x: 0, y: 0, z: 27}
+        position: {x: 0, y: 0, z: 19}
       - type: 2
-        position: {x: -2, y: 0, z: 15}
+        position: {x: -2, y: 0, z: 12}
       - type: 2
-        position: {x: -1, y: 0, z: 16}
+        position: {x: -2, y: 0, z: 11}
+      - type: 2
+        position: {x: -2, y: 0, z: 13}
+      - type: 2
+        position: {x: 2, y: 0, z: 11}
+      - type: 2
+        position: {x: 2, y: 0, z: 12}
+      - type: 2
+        position: {x: 2, y: 0, z: 13}
       - type: 4
         position: {x: 0, y: 0, z: 11}
       - type: 4
-        position: {x: 1, y: 0, z: 14}
+        position: {x: 0, y: 0, z: 12}
       - type: 4
-        position: {x: 1, y: 0, z: 18}
+        position: {x: 0, y: 0, z: 13}
       width: 5
-      height: 30
+      height: 20
 --- !u!1 &1488155055
 GameObject:
   m_ObjectHideFlags: 0

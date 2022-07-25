@@ -226,6 +226,7 @@ namespace Game
     {
         public int id;
         public GameObject prefab;
+        public Sprite sprite;
     }
     
     [System.Serializable]

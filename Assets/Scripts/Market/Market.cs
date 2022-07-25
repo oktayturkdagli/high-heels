@@ -60,8 +60,9 @@ namespace Game
 
                 marketItems[i].id = items[i].id;
                 marketItems[i].title.text = items[i].title.ToUpper().Replace("_", " ");
-                marketItems[i].image.sprite = items[i].sprite;
                 marketItems[i].price.text = items[i].price.ToString();
+                
+                //Does player have?
                 marketItems[i].button.image.color = Color.white;
                 marketItems[i].button.enabled = !items[i].doesPlayerHave;
                 if (items[i].doesPlayerHave)
@@ -69,6 +70,13 @@ namespace Game
                     marketItems[i].price.text = "USING";
                     marketItems[i].button.image.color = Color.gray;
                 }
+                
+                //Sprite
+                List<SceneItem> sceneItems = ItemDataManager.Instance.SceneItems;
+                SceneItem sceneItem = sceneItems.FirstOrDefault(o => o.id == marketItems[i].id);
+                if (sceneItem == null)
+                    return;
+                marketItems[i].image.sprite = sceneItem.sprite;
             }
         }
 
