@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Game
 {
     [System.Serializable]
@@ -7,7 +5,6 @@ namespace Game
     {
         public int id;
         public string title;
-        public Sprite sprite;
         public int price;
         public bool doesPlayerHave = false;
         public ItemType itemType;
