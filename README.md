@@ -1,15 +1,22 @@
 ## 📋 High Heels
-The taller your heels are, the easier it will be to escape from the walls. A different obstacle awaits you at each parkour! 
-This is a [High Heels](https://apps.apple.com/us/app/high-heels/id1545306176) clone.
+This project does not include any high heels mechanics, it only focuses on high level code design.
 <br/><br/>
 
+## 🖼 Design Schemes
+**Level Editor Design**
+![Level Editor and Object Pool Design](https://user-images.githubusercontent.com/61520877/180793745-2b49a934-9b6e-4606-bef8-a3f4bf563417.png)
+<br/>
+**Player Design**
+![Player Design](https://user-images.githubusercontent.com/61520877/180793774-3ba58a8a-7615-4c75-9a3e-4c8e4627ed3a.png)
+<br/>
+**Items Design**
+![Items Design](https://user-images.githubusercontent.com/61520877/180793682-f61adb68-7efe-4446-a4df-452a7ff9eecd.png)
+<br/><br/>
 
 ## 🖼 Project Video
-![Screen Shot](https://user-images.githubusercontent.com/61520877/179824568-52ac97c5-3d95-4975-b6c6-4482a701d598.png)
-![Design Diagram](https://user-images.githubusercontent.com/61520877/179824594-ee0255a2-c4a3-4123-aea1-afda6230937e.png)
+
+
+https://user-images.githubusercontent.com/61520877/180794981-729e8588-afde-446f-b8eb-f0dc2c88cff1.mp4
 
 
 <br/>
-
-
-## 🖼 Level Editor
