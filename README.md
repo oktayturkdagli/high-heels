@@ -10,7 +10,7 @@ This project does not include any high heels mechanics, it only focuses on high 
 ![Player Design](https://user-images.githubusercontent.com/61520877/180793774-3ba58a8a-7615-4c75-9a3e-4c8e4627ed3a.png)
 <br/>
 **Items Design**
-![Items Design](https://user-images.githubusercontent.com/61520877/180793682-f61adb68-7efe-4446-a4df-452a7ff9eecd.png)
+![Items Design](https://user-images.githubusercontent.com/61520877/181129471-74a85751-1d73-489c-8610-425d8febe076.png)
 <br/><br/>
 
 ## 🖼 Project Video
